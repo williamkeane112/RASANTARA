@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import UnSave from "../assets/icon/UnSave.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark, } from "@fortawesome/free-solid-svg-icons";
 import Tekwan from "../assets/img/Tekwan.png";
 import SatePadang from "../assets/Sumatera/SatePadang.jpg";
 import Rendang from "../assets/Sumatera/Rendang.jpg";
@@ -76,7 +77,7 @@ const SumateraComp = () => {
                     <h3 className="font-bold text-xl leading-[14px]">{item.makanan}</h3>
                     <span className="font-bold text-[11px]">{item.Asal}</span>
                   </div>
-                  <img src={UnSave} alt="" className="w-4 -mt-4" />
+                  <FontAwesomeIcon icon={faBookmark} alt="" className="w-4 -mt-4" />
                 </div>
                 <p className="text-[11px] mt-1">{item.text}</p>
               </div>
