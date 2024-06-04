@@ -1,0 +1,15 @@
+
+.sumatera:hover,
+.jawa:hover,
+.bali:hover,
+.kalimantan:hover,
+.sulawesi:hover,
+.papua:hover,
+.ntb:hover,
+.ntt:hover {
+  transform: scale(1.2);
+}
+
+.IndonesiaMap:hover .overlay {
+  display: block; 
+}
