@@ -1,35 +1,35 @@
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faClock, faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+
+// Component
+import Sidebar from "../components/SidebarDetail";
+import { useState } from "react";
 
 function Detail() {
 
+  const [sidebar, toggleSidebar] = useState(false);
+  const click = () => {
+    toggleSidebar(!sidebar);
+  }
+
   return (
-    <div className="flex overflow-auto bg-gray-100">
+    <div className={`${sidebar ? 'flex' : 'block'} md:flex overflow-auto bg-gray-100`}>
       {/* Navbar */}
-      <nav className="fixed w-1/12 h-auto">
-        <div className="mt-7 flex flex-col items-center">
-          <button className="flex flex-col items-center mb-20">
-            <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-xl" />
-          </button>
-          <button className="flex flex-col items-center mb-14">
-            <FontAwesomeIcon icon={faBookmark} alt="Icon Save Menu" className="text-xl" />
-            <span className="lg:text-[13px] text-sm">Tersimpan</span>
-          </button>
-          <button className="flex flex-col items-center">
-            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-xl" />
-            <span className="lg:text-[13px] text-sm">Baru Saja</span>
-          </button>
-        </div>
-      </nav>
+      { window.innerWidth < 640 ? null : <Sidebar toggle={click} /> }
+      { sidebar ? <Sidebar toggle={click}/> : null}
       {/* End navbar */}
 
-      {/* Main Content */}
-      <div className="w-1/12 border-r border-black"></div>
 
-      <div className="h-auto w-11/12 flex">
-        <div className="h-auto w-9/12 flex flex-col">
+      {/* Main Content */}
+
+      <div className={`${sidebar ? 'hidden' : ''} mx-6 mt-4 md:hidden block h-12 w-full`}>
+        <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
+      </div>
+
+      <div className="h-auto w-full flex flex-col-reverse md:flex-row">
+        <div className="h-auto md:w-9/12 flex flex-col">
           <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-lg w-11/12 h-72">
             <iframe
               className="p-4 h-full w-full"
@@ -44,7 +44,7 @@ function Detail() {
             ></iframe>
           </div>
 
-          <div className="mt-5 ml-9 text-xl font-bold font-sans tracking-wide">Tekwan | Palembang, Sumatera Selatan</div>
+          <div className="mt-5 ml-9 text-lg md:text-xl font-bold font-sans tracking-wide">Tekwan | Palembang, Sumatera Selatan</div>
 
           <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-lg w-11/12 h-auto">
             <div className="h-14 w-full row-span-1 flex justify-between mb-6">
@@ -126,9 +126,9 @@ function Detail() {
         {/* End Main Content */}
 
         {/* Fixed Sidebar Tombol */}
-        <div className="h-screen w-3/12 flex justify-center items-start">
-          <div className="fixed w-2/12">
-            <div className="mt-10 h-60 bg-gray-150 rounded-md shadow-lg flex flex-col justify-evenly items-center">
+        <div className="h-56 w-full md:h-screen md:w-3/12 md:flex md:justify-center md:items-start">
+          <div className="md:fixed w-full md:w-2/12">
+            <div className="mx-5 md:mx-0 mt-5 h-48 md:mt-10 md:h-60 bg-gray-150 rounded-md shadow-lg flex flex-col justify-evenly items-center">
               <Link to={-1}  className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
                 <div>
                   <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
