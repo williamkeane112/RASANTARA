@@ -1,10 +1,10 @@
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faClock, faBookmark} from "@fortawesome/free-solid-svg-icons";
-
+import { faBars, faClock, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 function Detail() {
+
   return (
     <div className="flex overflow-auto bg-gray-100">
       {/* Navbar */}
@@ -129,7 +129,7 @@ function Detail() {
         <div className="h-screen w-3/12 flex justify-center items-start">
           <div className="fixed w-2/12">
             <div className="mt-10 h-60 bg-gray-150 rounded-md shadow-lg flex flex-col justify-evenly items-center">
-              <Link to="/sumatera" className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
+              <Link to={-1}  className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
                 <div>
                   <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>

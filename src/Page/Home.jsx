@@ -100,56 +100,56 @@ function Home() {
       <div className="IndonesiaMap">
         {/* Pulau Sumatera */}
         <div className="sumatera absolute md:bottom-16 bottom-44 md:left-10">
-          <Link to="/sumatera" className="sumatera">
+          <Link to="/Sumatera" className="sumatera">
             <img src={sumateraImg} alt="" className="md:w-[28rem] w-[18rem]" />
           </Link>
         </div>
 
         {/* Pulau Jawa */}
         <div className="jawa absolute md:-bottom-8 bottom-32 md:left-[19rem] left-[10rem]">
-          <Link to="/jawa" className="jawa">
+          <Link to="/Jawa" className="jawa">
             <img src={jawaImg} alt="" className="md:w-[28rem] w-[16rem]" />
           </Link>
         </div>
 
         {/* Pulau Bali */}
         <div className="bali absolute md:bottom-16 md:right-[27rem] right-[17.5rem] bottom-[10rem]">
-          <Link to="/" className="bali">
+          <Link to="/Bali" className="bali">
             <img src={baliImg} alt="" className="md:w-[7rem] w-[6rem]" />
           </Link>
         </div>
 
         {/* Pulau Kalimantan */}
         <div className="kalimantan absolute md:left-[14rem] md:top-28 top-36 left-[4rem]">
-          <Link to="/" className="kalimantan">
+          <Link to="/Kalimantan" className="kalimantan">
             <img src={KalimantanImg} alt="" className="md:w-[35rem] w-[27rem]" />
           </Link>
         </div>
 
         {/* Pulau Sulawesi */}
         <div className="sulawesi absolute md:left-[34rem] md:top-36 top-44 left-[20rem]">
-          <Link to="/" className="sulawesi">
+          <Link to="/Sulawesi" className="sulawesi">
             <img src={sulawesiImg} alt="" className="md:w-[24rem] w-[16rem]" />
           </Link>
         </div>
 
         {/* Pulau Papua */}
         <div className="papua absolute md:right-[4rem] md:top-28 right-4 top-40">
-          <Link to="/" className="papua">
+          <Link to="/Papua" className="papua">
             <img src={papuaiImg} alt="" className="md:w-[20rem] w-[14rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Barat (NTB) */}
         <div className="ntb absolute md:right-[15.5rem] md:bottom-14 bottom-40 right-36">
-          <Link to="/" className="ntb">
+          <Link to="/NusaTenggaraBarat" className="ntb">
             <img src={ntbImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Timur (NTT) */}
         <div className="ntt absolute md:right-[5rem] md:bottom-28 right-3 bottom-48">
-          <Link to="/" className="ntt">
+          <Link to="/NusaTenggaraTimur" className="ntt">
             <img src={nttImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
