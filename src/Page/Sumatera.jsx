@@ -2,16 +2,18 @@
 import HideMenu from "../assets/icon/HideMenu.svg";
 import bgWalpp from "../assets/img/bgwater2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faBookmark, faXmark, faSearch, faBars, faClock, faCircleExclamation, } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faXmark, faSearch, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 // img
 import sumatera2Img from "../assets/img/SumateraImg2.png";
 
 // Router
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 // item
-import SumateraComp from "../components/SumateraComp";
+import ListComp from "../components/ListComp";
+import Sidebar from "../components/Sidebar";
 function Sumatera() {
+  const location = useLocation();
   const [Small, isSmall] = useState(false);
   const [Hide, SetHideExpan] = useState(false);
 
@@ -22,21 +24,7 @@ function Sumatera() {
     <>
       <div className={`grid ${isSmall ? "grid-cols-11" : ""} lg:grid-cols-12`}>
         {/* SideBar */}
-        <nav className="col-span-1 w-[70px] max-h-[100%] border-r border-black">
-          <div className="mt-7 flex flex-col items-center">
-            <button className="flex flex-col items-center mb-20">
-              <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-2xl" />
-            </button>
-            <button className="flex flex-col items-center mb-14">
-              <FontAwesomeIcon icon={faBookmark} className="text-2xl" />
-              <span className="lg:text-[12px] text-sm">Tersimpan</span>
-            </button>
-            <button className="flex flex-col items-center">
-              <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-2xl" />
-              <span className="lg:text-[12px] text-sm">Baru Saja</span>
-            </button>
-          </div>
-        </nav>
+        <Sidebar />
         {/* End SideBar */}
 
         {/* Section 2*/}
@@ -45,7 +33,7 @@ function Sumatera() {
           <div className="mt-4 flex items-center justify-between mr-5 lg:mx-1 mx-8">
             <div className="flex items-center">
               <FontAwesomeIcon icon={faLocationDot} className="text-xl text-rose-500" />
-              <span className="mt-2 font-semibold ml-1">Pulau Sumatera</span>
+              <span className="mt-2 font-semibold ml-1">Pulau {location.pathname.replace("/", "")}</span>
             </div>
             <Link to="/">
               <FontAwesomeIcon icon={faXmark} className="text-2xl" />
@@ -57,14 +45,12 @@ function Sumatera() {
           <div className="my-4 lg:mx-1 ml-8 mx-5 ">
             <div className="flex items-center relative">
               <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
-              <input type="text" placeholder="Cari resep makan di daerah pulau sumatra.." className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] border border-black rounded-md" />
+              <input type="text" placeholder={`Cari resep makan di daerah pulau ${location.pathname.replace("/", "")}`} className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] border border-black rounded-md" />
             </div>
           </div>
           {/* end search */}
-
+          <ListComp />
           {/* List Makanan */}
-          <SumateraComp />
-          {/* End List Makanan*/}
         </section>
         {/* End Section 2 */}
         {/* Menu ?? */}
