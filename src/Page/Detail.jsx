@@ -5,32 +5,49 @@ import { Link } from "react-router-dom";
 
 // Component
 import Sidebar from "../components/SidebarDetail";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Detail() {
 
   const [sidebar, toggleSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
   const click = () => {
     toggleSidebar(!sidebar);
-  }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      if (window.innerWidth >= 640) {
+        toggleSidebar(false); // Ensure sidebar is not open on desktop view by default
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className={`${sidebar ? 'flex' : 'block'} md:flex overflow-auto bg-gray-100`}>
       {/* Navbar */}
-      { window.innerWidth < 640 ? null : <Sidebar toggle={click} /> }
-      { sidebar ? <Sidebar toggle={click}/> : null}
+      { !isMobile && <Sidebar toggle={click} /> }
+      { sidebar && isMobile && <Sidebar toggle={click}/> }
       {/* End navbar */}
 
-
       {/* Main Content */}
-
-      <div className={`${sidebar ? 'hidden' : ''} mx-6 mt-4 md:hidden block h-12 w-full`}>
+      <div className={`${sidebar && isMobile ? 'hidden' : ''} flex justify-between mx-10 mt-6 md:hidden h-12`}>
+        <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
+        </svg>
         <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
       </div>
 
       <div className="h-auto w-full flex flex-col-reverse md:flex-row">
         <div className="h-auto md:w-9/12 flex flex-col">
-          <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-lg w-11/12 h-72">
+          <div className="mx-auto mt-5 bg-gray-100 rounded-lg md:rounded-md shadow-2xl w-10/12 h-72">
             <iframe
               className="p-4 h-full w-full"
               width="560"
@@ -44,9 +61,19 @@ function Detail() {
             ></iframe>
           </div>
 
-          <div className="mt-5 ml-9 text-lg md:text-xl font-bold font-sans tracking-wide">Tekwan | Palembang, Sumatera Selatan</div>
+          <div className="mt-10 ml-10 text-lg md:text-xl font-bold font-sans tracking-wide">Tekwan | Palembang, Sumatera Selatan</div>
 
-          <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-lg w-11/12 h-auto">
+          <button className="mt-10 mx-auto md:hidden p-2 bg-[#2F7377] w-9/12 rounded-md flex items-center justify-between">
+              <div>
+                <svg className="ml-2 text-white size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
+                </svg>
+              </div>
+              <div className="font-sans text-white">Simpan Resep</div>
+              <div></div>
+          </button>
+
+          <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-2xl w-10/12 h-auto">
             <div className="h-14 w-full row-span-1 flex justify-between mb-6">
               <h1 className="m-4 font-bold">Latar Belakang:</h1>
               <div className="m-4">
@@ -59,7 +86,7 @@ function Detail() {
             </div>
 
             <div className="h-auto w-full ml-4 mb-4">
-              <h1 className="w-11/12">
+              <h1 className="w-10/12">
                 Tekwan berasal dari akulturasi budaya Palembang dan Tionghoa, di mana orang Tionghoa yang menetap di Palembang memperkenalkan makanan berbahan dasar ikan. Tekwan diadopsi oleh masyarakat Palembang dengan menambahkan kuah
                 kaldu mirip sup dan bumbu khas daerah. Disebut berasal dari &quot;Berkotek Samo Kawan&quot; atau bahasa Hokkien &quot;tâi-oân&quot; yang mirip dengan Taiwan. Di negara lain, tekwan serupa dengan fishcake, tapi lebih kenyal
                 dan gurih. Banyak penggemar kuliner lebih memilih tekwan ketimbang fishcake.
@@ -67,7 +94,17 @@ function Detail() {
             </div>
           </div>
 
-          <div className="mx-auto mt-20 bg-gray-100 rounded-md shadow-lg w-11/12 h-auto">
+          <button className="mt-10 mx-auto md:hidden p-2 border-2 border-black w-9/12 rounded-md flex items-center justify-between">
+              <div>
+                <svg className="ml-2 size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"></path>
+                </svg>
+              </div>
+              <div className="font-sans font-bold">Bagikan</div>
+              <div></div>
+          </button>
+
+          <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-2xl w-10/12 h-auto">
             <div className="h-14 w-full row-span-1 flex justify-between mb-2">
               <h1 className="m-4 font-bold">Bahan-bahan:</h1>
               <div className="m-4">
@@ -98,7 +135,7 @@ function Detail() {
             </div>
           </div>
 
-          <div className="mx-auto mt-20 bg-gray-100 rounded-md shadow-lg w-11/12 h-auto mb-4">
+          <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-2xl w-10/12 h-auto mb-4">
             <div className="h-14 w-full row-span-1 mb-2">
               <h1 className="m-4 font-bold">Langkah-langkah:</h1>
             </div>
@@ -126,9 +163,9 @@ function Detail() {
         {/* End Main Content */}
 
         {/* Fixed Sidebar Tombol */}
-        <div className="h-56 w-full md:h-screen md:w-3/12 md:flex md:justify-center md:items-start">
+        <div className="hidden h-56 w-full md:h-screen md:w-3/12 md:flex md:justify-center md:items-start">
           <div className="md:fixed w-full md:w-2/12">
-            <div className="mx-5 md:mx-0 mt-5 h-48 md:mt-10 md:h-60 bg-gray-150 rounded-md shadow-lg flex flex-col justify-evenly items-center">
+            <div className="mx-5 md:mx-0 mt-5 h-48 md:mt-10 md:h-60 bg-gray-150 rounded-md shadow-2xl flex flex-col justify-evenly items-center">
               <Link to={-1}  className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
                 <div>
                   <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
