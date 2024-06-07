@@ -16,7 +16,8 @@ import "../home.css";
 import UniqueFacts from "../components/uniquefactsEn";
 import MusikHome from "../components/musikHome";
 import SettingsModal from "../components/settingsModalEn";
-import LoginModal from "../components/user";
+// import LoginModal from "../components/user";
+import LoginModal2 from "../components/loginuserEn";
 
 function HomeEn() {
 
@@ -24,7 +25,7 @@ function HomeEn() {
     <div className="body h-[100vh] md:w-auto w-[115vh] pt-3 relative" style={{ backgroundImage: `url(${bgWalpp})` }}>
 
       <SettingsModal />
-      <LoginModal />
+      <LoginModal2 />
       
       <div className="title flex justify-center flex-col items-center ml-10 fixed md:static">
         <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md text-black tracking-wider ">

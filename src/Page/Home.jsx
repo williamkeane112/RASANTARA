@@ -1,7 +1,4 @@
-
 import { Link } from "react-router-dom";
-
-//source
 import sumateraImg from "../assets/img/Sumatera.png";
 import jawaImg from "../assets/img/Jawa.png";
 import baliImg from "../assets/img/Bali.png";
@@ -12,16 +9,12 @@ import ntbImg from "../assets/img/ntb.png";
 import nttImg from "../assets/img/ntt.png";
 import bgWalpp from "../assets/img/bgwater2.png";
 import "../home.css";
-
-// Component
 import UniqueFacts from "../components/uniquefacts";
 import MusikHome from "../components/musikHome";
 import SettingsModal from "../components/settingsModal";
 import LoginModal from "../components/loginuser";
 
 function Home() {
-
-
   return (
     <div className="body h-[100vh] md:w-auto w-[115vh] pt-3 relative" style={{ backgroundImage: `url(${bgWalpp})` }}>
       <SettingsModal />
@@ -42,56 +35,56 @@ function Home() {
       <div className="IndonesiaMap">
         {/* Pulau Sumatera */}
         <div className="sumatera absolute md:bottom-20 bottom-56 md:left-8">
-          <Link to="/Sumatera" className="sumatera">
+          <Link to="/List?pulau=sumatera" className="sumatera">
             <img src={sumateraImg} alt="" className="md:w-[27rem] w-[16rem]" />
           </Link>
         </div>
 
         {/* Pulau Jawa */}
         <div className="jawa absolute md:bottom-6 bottom-48 md:left-[18rem] left-[10rem]">
-          <Link to="/Jawa" className="jawa">
+          <Link to="/List?pulau=jawa" className="jawa">
             <img src={jawaImg} alt="" className="md:w-[29rem] w-[18rem]" />
           </Link>
         </div>
 
         {/* Pulau Bali */}
         <div className="bali absolute md:bottom-10 md:right-[27rem] right-[17.5rem] bottom-[12rem]">
-          <Link to="/Bali" className="bali">
+          <Link to="/List?pulau=bali" className="bali">
             <img src={baliImg} alt="" className="md:w-[8rem] w-[6rem]" />
           </Link>
         </div>
 
         {/* Pulau Kalimantan */}
         <div className="kalimantan absolute md:left-[20rem] md:top-32 top-36 left-[11rem]">
-          <Link to="/Kalimantan" className="kalimantan">
+          <Link to="/List?pulau=kalimantan" className="kalimantan">
             <img src={KalimantanImg} alt="" className="md:w-[17.5rem] w-[14.5rem]" />
           </Link>
         </div>
 
         {/* Pulau Sulawesi */}
         <div className="sulawesi absolute md:left-[37.5rem] md:top-32 top-44 left-[25rem]">
-          <Link to="/Sulawesi" className="sulawesi">
+          <Link to="/List?pulau=sulawesi" className="sulawesi">
             <img src={sulawesiImg} alt="" className="md:w-[17rem] w-[11rem]" />
           </Link>
         </div>
 
         {/* Pulau Papua */}
         <div className="papua absolute md:right-[4rem] md:top-28 right-4 top-40">
-          <Link to="/Papua" className="papua">
+          <Link to="/List?pulau=papua" className="papua">
             <img src={papuaiImg} alt="" className="md:w-[21rem] w-[14rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Barat (NTB) */}
         <div className="ntb absolute md:right-[15.5rem] md:bottom-8 bottom-48 right-36">
-          <Link to="/NusaTenggaraBarat" className="ntb">
+          <Link to="/List?pulau=ntb" className="ntb">
             <img src={ntbImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Timur (NTT) */}
         <div className="ntt absolute md:right-[5rem] md:bottom-20 right-3 bottom-56">
-          <Link to="/NusaTenggaraTimur" className="ntt">
+          <Link to="/List?pulau=ntt" className="ntt">
             <img src={nttImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
