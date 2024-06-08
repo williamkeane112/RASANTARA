@@ -13,7 +13,8 @@ import { useState } from "react";
 import ListComp from "../components/ListComp";
 import Sidebar from "../components/Sidebar";
 function Sumatera() {
-  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("pulau") || "";
   const [Small, isSmall] = useState(false);
   const [Hide, SetHideExpan] = useState(false);
 
@@ -33,7 +34,7 @@ function Sumatera() {
           <div className="mt-4 flex items-center justify-between mr-5 lg:mx-1 mx-8">
             <div className="flex items-center">
               <FontAwesomeIcon icon={faLocationDot} className="text-xl text-rose-500" />
-              <span className="mt-2 font-semibold ml-1">Pulau {location.pathname.replace("/", "")}</span>
+              <span className="mt-2 font-semibold ml-1">Pulau {query}</span>
             </div>
             <Link to="/">
               <FontAwesomeIcon icon={faXmark} className="text-2xl" />

@@ -53,7 +53,6 @@ const ListComp = () => {
         makanan_id,
       });
       console.log(response.data);
-      redirect("/sumatera");
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +63,7 @@ const ListComp = () => {
       const response = await axios.delete(`http://localhost:8000/api/bookmark/${bookmarkId}`);
       console.log(response.data);
       // Refresh the bookmark list
-      const updatedBookmarks = bookmark.filter(item => item.id !== bookmarkId);
+      const updatedBookmarks = bookmark.filter((item) => item.id !== bookmarkId);
       setBookmark(updatedBookmarks);
     } catch (error) {
       console.log(error);
@@ -77,8 +76,9 @@ const ListComp = () => {
     fetchData();
   }, [location.pathname]);
 
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("pulau") || "";
   const fetchData = async () => {
-    const query = location.pathname.replace("/", "");
     try {
       const result = await axios(`http://127.0.0.1:8000/api/makanan?query=${query}`);
       setData(result.data);
@@ -93,7 +93,7 @@ const ListComp = () => {
       <div className="my-4 lg:mx-1 ml-8 mx-5 ">
         <div className="flex items-center relative">
           <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
-          <input type="text" placeholder={`Cari resep makan di daerah pulau ${location.pathname.replace("/", "")}`} className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] rounded-md shadow-[3px_6px_8px_0.1px_rgba(0,0,0,0.3)]" />
+          <input type="text" placeholder={`Cari resep makan di daerah pulau ${query}`} className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] rounded-md shadow-[3px_6px_8px_0.1px_rgba(0,0,0,0.3)]" />
         </div>
       </div>
       {Data.map((item) => (
@@ -110,12 +110,16 @@ const ListComp = () => {
                     <span className="font-bold text-[11px]">{item.daerah}</span>
                   </div>
                   {bookmark && bookmark.find((bookmarkItem) => bookmarkItem.makanan_id === item.id) ? (
-                    <button type="button" className="z-[999] cursor-default"  onClick={(e) => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                      const bookmarkId = bookmark.find((bookmarkItem) => bookmarkItem.makanan_id === item.id).id;
-                      deleteBookmark(bookmarkId);
-                      }}>
+                    <button
+                      type="button"
+                      className="z-[999] cursor-default"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        const bookmarkId = bookmark.find((bookmarkItem) => bookmarkItem.makanan_id === item.id).id;
+                        deleteBookmark(bookmarkId);
+                      }}
+                    >
                       <FontAwesomeIcon icon={faBookmark} className="w-4" />
                     </button>
                   ) : (
