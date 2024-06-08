@@ -14,7 +14,12 @@ import BaliImg2 from "../assets/img/BaliImg2.png";
 
 import ListComp from "../components/ListComp";
 import Sidebar from "../components/Sidebar";
-import MusikList from "../components/MusikList";
+import MusikList from "../components/musikList";
+
+
+// img
+
+// Router
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
