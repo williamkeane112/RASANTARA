@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faTimes} from "@fortawesome/free-solid-svg-icons";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
+
 
 function LoginModal() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);

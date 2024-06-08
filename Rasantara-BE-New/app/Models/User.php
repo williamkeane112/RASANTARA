@@ -10,7 +10,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
-    
+    protected $guarded = ['id'];
     // Add any additional fields or relationships here
 
     /**
@@ -32,4 +32,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function makanans()
+{
+    return $this->belongsToMany(Makanan::class);
+}
+public function bookmarks()
+{
+    return $this->hasMany(Bookmark::class);
+}
 }

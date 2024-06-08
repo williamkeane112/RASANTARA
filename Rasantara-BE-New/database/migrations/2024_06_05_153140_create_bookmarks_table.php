@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('details', function (Blueprint $table) {
+        Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('makanan_id')->constrained('makanans');
-            $table->text('tutorial');
-            $table->text('latarBelakang');
-            $table->json('bahanBahan');
-            $table->json('langkahLangkah');
+            $table->enum('status', ['save', 'unsave'])->default('save');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('details');
+        Schema::dropIfExists('bookmarks');
     }
 };

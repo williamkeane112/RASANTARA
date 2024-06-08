@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -54,12 +55,19 @@ class AuthController extends Controller
 
     public function me()
     {
-        auth()->logout();
-        return response()->json(['massage', 'Success Logout']);
+        $user = auth()->user();
+
+        if ($user) {
+            return response()->json($user);
+        }
+    
+        return response()->json(['message' => 'Unauthorized'], 401);
     }
       
 
     public function logout()
     {
+        $cookie = Cookie::forget('jwt');
+        return response(['massage' => 'Success'])->withCookie($cookie);
     }
 }
