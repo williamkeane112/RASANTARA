@@ -5,12 +5,18 @@ import manukDadali from "../assets/audio/manukdadali.m4a";
 import ayamdehlapeh from "../assets/audio/ayamdehlapeh.m4a";
 import sajojo from "../assets/audio/sajojo.m4a";
 import Yamko from "../assets/audio/Yamko.m4a";
+import Gemufamire from "../assets/audio/Gemufamire.m4a";
+import Mejangeran from "../assets/audio/Mejangeran.m4a";
+import Cupakgerantang from "../assets/audio/Cupakgerantang.m4a";
 
 const musicList = [
   { title: "Manuk Dadali", artist: "Lagu Tradisional Jawa Barat", audioSrc: manukDadali },
   { title: "Ayam Deh Lapeh", artist: "Lagu Tradisional Sumatra", audioSrc: ayamdehlapeh },
   { title: "Sajojo", artist: "Lagu Papua", audioSrc: sajojo },
   { title: "Yamko Rambe Yamko", artist: "Lagu Papua", audioSrc: Yamko },
+  { title: "Gemu famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire },
+  { title: "Mejangeran", artist: "Lagu Bali", audioSrc: Mejangeran },
+  { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang },
 ];
 
 function MusikHome() {

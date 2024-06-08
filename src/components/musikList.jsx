@@ -5,13 +5,23 @@ import manukDadali from "../assets/audio/manukdadali.m4a";
 import ayamdehlapeh from "../assets/audio/ayamdehlapeh.m4a";
 import sajojo from "../assets/audio/sajojo.m4a";
 import Yamko from "../assets/audio/Yamko.m4a";
+import Gemufamire from "../assets/audio/Gemufamire.m4a";
+import Mejangeran from "../assets/audio/Mejangeran.m4a";
+import Cupakgerantang from "../assets/audio/Cupakgerantang.m4a";
+import Sipatokaan from "../assets/audio/Sipatokaan.m4a";
+
 import { useLocation } from "react-router-dom";
 
 const musicList = [
-  { title: "Manuk Dadali", artist: "Lagu Tradisional Jawa Barat", audioSrc: manukDadali, region: "jawa" },
-  { title: "Ayam Deh Lapeh", artist: "Lagu Tradisional Sumatra", audioSrc: ayamdehlapeh, region: "sumatera" },
+  { title: "Manuk Dadali", artist: "Lagu Jawa Barat", audioSrc: manukDadali, region: "jawa" },
+  { title: "Ayam Deh Lapeh", artist: "Lagu Sumatera Barat", audioSrc: ayamdehlapeh, region: "sumatera" },
   { title: "Sajojo", artist: "Lagu Papua", audioSrc: sajojo, region: "papua" },
   { title: "Yamko Rambe Yamko", artist: "Lagu Papua", audioSrc: Yamko, region: "papua" },
+  { title: "Gemu Famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire, region: "ntt" },
+  { title: "Mejangeran", artist: "Lagu Bali", audioSrc: Mejangeran, region: "bali" },
+  { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang, region: "ntb" },
+  { title: "Sipatokaan", artist: "Lagu Sulawesi Utara", audioSrc: Sipatokaan, region: "sulawesi" }
+
 ];
 
 function MusikList() {
