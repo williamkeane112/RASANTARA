@@ -43,7 +43,7 @@ function MusikList() {
       audio.pause();
       audio.removeEventListener("ended", handleEnded);
     };
-  }, [audio, isMusicPlaying, filteredMusicList]);
+  }, [audio, isMusicPlaying]);
 
   useEffect(() => {
     if (isMusicPlaying) {
@@ -52,11 +52,6 @@ function MusikList() {
       audio.pause();
     }
   }, [audio, isMusicPlaying]);
-
-  useEffect(() => {
-    const newAudio = new Audio(filteredMusicList[currentMusicIndex]?.audioSrc);
-    setAudio(newAudio);
-  }, [filteredMusicList, currentMusicIndex]);
 
   const handleAudioToggle = () => {
     setIsMusicPlaying(!isMusicPlaying);
@@ -70,10 +65,10 @@ function MusikList() {
         </button>
         <div className="text">
           <h1 className="music-title font-bold md:text-lg text-sm">
-            {filteredMusicList[currentMusicIndex]?.title}
+            {filteredMusicList[currentMusicIndex].title}
           </h1>
           <p className="music-artist text-[10px] md:text-xs">
-            {filteredMusicList[currentMusicIndex]?.artist}
+            {filteredMusicList[currentMusicIndex].artist}
           </p>
         </div>
       </div>
