@@ -43,7 +43,6 @@ function LoginModal() {
               {/* form */}
               <div className="Pilih-bahasa flex items-center justify-between gap-5">
                 <div>
-                  <Login />
                   <div className="button items-center flex justify-center flex-col">
                     <button onClick={handleCreateAccountToggle} className="text-sm underline">Don&apos;t have an account?</button>
                   </div>
@@ -69,7 +68,6 @@ function LoginModal() {
               {/* create account form */}
               <div className="Pilih-bahasa flex items-center justify-between gap-5">
               <div className="">
-               <Register />
                   <div className="button items-center flex justify-center flex-col">
                     <button onClick={handleExistingAccountToggle} className="text-sm underline">Sudah punya akun ?</button>
                   </div>

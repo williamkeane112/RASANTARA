@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -7,7 +7,6 @@ import axios from "axios";
 const ListComp = () => {
   const [Data, setData] = useState([]);
   const location = useLocation();
-  const redirect = useNavigate();
   const [user_id, setUserId] = useState();
 
   // get id user
@@ -90,7 +89,7 @@ const ListComp = () => {
 
   return (
     <>
-      <div className="my-4 lg:mx-1 ml-8 mx-5 ">
+      <div className="my-4 lg:mx-1 ml-8 mx-5 lg:block hidden">
         <div className="flex items-center relative">
           <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
           <input type="text" placeholder={`Cari resep makan di daerah pulau ${query}`} className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] rounded-md shadow-[3px_6px_8px_0.1px_rgba(0,0,0,0.3)]" />
@@ -98,16 +97,16 @@ const ListComp = () => {
       </div>
       {Data.map((item) => (
         <Link to={`/detail/${item.id}`} key={item.id} className="">
-          <div className="mb-4 lg:mx-1 ml-8 mx-5">
-            <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid lg:grid-cols-2 grid-cols-1 gap-2">
-              <div className="lg:w-28 flex justify-center">
-                <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg w-full" />
+          <div className="mb-4 lg:mx-1 lg:ml-2 mx-4">
+            <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid grid-cols-2 gap-2">
+              <div className="lg:w-28 w-20 flex justify-center">
+                <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg lg:w-full" />
               </div>
-              <div className="lg:-ml-[133px] mt-[10px] lg:mx-6 mx-3 px-2 pb-5">
+              <div className="lg:-ml-[133px] -ml-[90px] mt-[10px] lg:mx-6 mx-2 px-2 pb-5">
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="font-bold text-xl leading-[14px]">{item.makanan}</h3>
-                    <span className="font-bold text-[11px]">{item.daerah}</span>
+                    <h3 className="font-bold lg:text-xl text-sm leading-[14px]">{item.makanan}</h3>
+                    <span className="font-bold lg:text-[11px] text-[9px]">{item.daerah}</span>
                   </div>
                   {bookmark && bookmark.find((bookmarkItem) => bookmarkItem.makanan_id === item.id) ? (
                     <button
@@ -120,7 +119,7 @@ const ListComp = () => {
                         deleteBookmark(bookmarkId);
                       }}
                     >
-                      <FontAwesomeIcon icon={faBookmark} className="w-4" />
+                      <FontAwesomeIcon icon={faBookmark} className="lg:w-4 w-3 text-[#2F7377]" />
                     </button>
                   ) : (
                     <button
@@ -133,13 +132,13 @@ const ListComp = () => {
                         Bookmark(item.id);
                       }}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="w-4">
-                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="lg:w-4 w-3 text-[#2F7377]">
+                        <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"  className="text-[#2F7377]"/>
                       </svg>
                     </button>
                   )}
                 </div>
-                <p className="text-[11px] mt-1">{item.deskripsi}</p>
+                <p className="lg:text-[11px] mt-1 text-[10px]">{item.deskripsi}</p>
               </div>
             </div>
           </div>
