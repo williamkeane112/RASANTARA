@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faTimes, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function LoginModal() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -87,28 +85,22 @@ function LoginModal() {
               <h2 className="text-2xl font-bold mb-4 text-center">LOGIN</h2>
               {/* form */}
               <div className="Pilih-bahasa flex items-center justify-between gap-5">
-                <form onSubmit={handelLogin}>
+                <form action="">
                   <div className="email flex-col flex mb-3">
-                    <label htmlFor="email" className="font-medium">
-                      Email :
-                    </label>
+                    <label htmlFor="email" className="font-medium">Email :</label>
                     <FontAwesomeIcon icon={faEnvelope} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
-                    <input type="email" name="email" required id="" className="rounded-md h-10 md:w-[27rem] pl-10  shadow-xl shadow-offset-x-lg shadow-offset-y-none" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="email" name="" required id="" className="rounded-md h-10 md:w-[27rem] pl-10  shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
                   </div>
                   <div className="password flex-col flex mb-3">
-                    <label htmlFor="pass" className="font-medium">
-                      Password :
-                    </label>
+                    <label htmlFor="pass" className="font-medium">Password :</label>
                     <FontAwesomeIcon icon={faLock} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
-                    <input type="password" name="" required id="" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" name="" required id="" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
                   </div>
                   <div className="button items-center flex justify-center flex-col mt-5 mb-5">
                     <button className="bg-[#2F7377] mb-2 text-white rounded-md h-10 w-[15rem]">Login</button>
-                    <button onClick={handleCreateAccountToggle} className="text-sm underline">
-                      Belum punya akun ?
-                    </button>
+                    <button onClick={handleCreateAccountToggle} className="text-sm underline">Belum punya akun ?</button>
                   </div>
-                </form>
+                </div>
               </div>
               {/* end */}
             </div>
@@ -129,35 +121,32 @@ function LoginModal() {
               <h2 className="text-2xl font-bold mb-4 text-center">BUAT AKUN</h2>
               {/* buat account form */}
               <div className="Pilih-bahasa flex items-center justify-between gap-5">
-                <form onSubmit={Register}>
-                  <div className="nama flex-col flex mb-3">
-                    <label htmlFor="nama" className="font-medium">
-                      Username :
-                    </label>
+                <form action="">
+                <div className="nama flex-col flex mb-3">
+                    <label htmlFor="nama" className="font-medium">Nama :</label>
                     <FontAwesomeIcon icon={faUser} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
-                    <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required id="" className="rounded-md h-10 md:w-[27rem] pl-10 shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
+                    <input type="text" name="" required id="" className="rounded-md h-10 md:w-[27rem] pl-10 shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
                   </div>
                   <div className="email flex-col flex mb-3">
-                    <label htmlFor="email" className="font-medium">
-                      Email :
-                    </label>
+                    <label htmlFor="email" className="font-medium">Email :</label>
                     <FontAwesomeIcon icon={faEnvelope} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
-                    <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required id="" className="rounded-md h-10 md:w-[27rem] pl-10  shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
+                    <input type="email" name="" required id="" className="rounded-md h-10 md:w-[27rem] pl-10  shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
                   </div>
                   <div className="password flex-col flex mb-3">
-                    <label htmlFor="pass" className="font-medium">
-                      Password :
-                    </label>
+                    <label htmlFor="pass" className="font-medium">Password :</label>
                     <FontAwesomeIcon icon={faLock} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
-                    <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required id="" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
+                    <input type="password" name="" required id="" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
+                  </div>
+                  <div className="nama flex-col flex mb-3">
+                    <label htmlFor="nama" className="font-medium">Konfirmasi Password :</label>
+                    <FontAwesomeIcon icon={faLock} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
+                    <input type="text" name="" required id="" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" />
                   </div>
                   <div className="button items-center flex justify-center flex-col mt-5 mb-5">
                     <button className="bg-[#2F7377] mb-2 text-white rounded-md h-10 w-[15rem]">Login</button>
-                    <button onClick={handleExistingAccountToggle} className="text-sm underline">
-                      Sudah punya akun ?
-                    </button>
+                    <button onClick={handleExistingAccountToggle} className="text-sm underline">Sudah punya akun ?</button>
                   </div>
-                </form>
+               </div>
               </div>
               {/* end */}
             </div>

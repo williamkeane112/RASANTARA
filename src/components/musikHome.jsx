@@ -2,11 +2,41 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 import manukDadali from "../assets/audio/manukdadali.m4a"; 
+import ayamdehlapeh from "../assets/audio/ayamdehlapeh.m4a";
+import sajojo from "../assets/audio/sajojo.m4a";
+import Yamko from "../assets/audio/Yamko.m4a";
 
+const musicList = [
+  { title: "Manuk Dadali", artist: "Lagu Tradisional Jawa Barat", audioSrc: manukDadali },
+  { title: "Ayam Deh Lapeh", artist: "Lagu Tradisional Sumatra", audioSrc: ayamdehlapeh },
+  { title: "Sajojo", artist: "Lagu Papua", audioSrc: sajojo },
+  { title: "Yamko Rambe Yamko", artist: "Lagu Papua", audioSrc: Yamko },
+];
 
 function MusikHome() {
+  const initialMusicIndex = Math.floor(Math.random() * musicList.length);
   const [isMusicPlaying, setIsMusicPlaying] = useState(true);
-  const [audio] = useState(new Audio(manukDadali));
+  const [currentMusicIndex, setCurrentMusicIndex] = useState(initialMusicIndex);
+  const [audio, setAudio] = useState(() => new Audio(musicList[initialMusicIndex].audioSrc));
+
+  useEffect(() => {
+    const handleEnded = () => {
+      const nextIndex = Math.floor(Math.random() * musicList.length);
+      setCurrentMusicIndex(nextIndex);
+      setAudio(new Audio(musicList[nextIndex].audioSrc));
+    };
+
+    audio.addEventListener("ended", handleEnded);
+
+    if (isMusicPlaying) {
+      audio.play();
+    }
+
+    return () => {
+      audio.pause();
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [audio, isMusicPlaying]);
 
   useEffect(() => {
     if (isMusicPlaying) {
@@ -14,11 +44,6 @@ function MusikHome() {
     } else {
       audio.pause();
     }
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
   }, [audio, isMusicPlaying]);
 
   const handleAudioToggle = () => {
@@ -32,8 +57,12 @@ function MusikHome() {
           <FontAwesomeIcon icon={isMusicPlaying ? faVolumeHigh : faVolumeMute} className="md:text-3xl text-xl" />
         </button>
         <div className="text">
-          <h1 className="music-title font-bold md:text-base text-sm">Manuk Dadali</h1>
-          <p className="music-artist text-[10px] md:text-xs">Lagu Tradisional Jawa Barat</p>
+          <h1 className="music-title font-bold md:text-lg text-sm">
+            {musicList[currentMusicIndex].title}
+          </h1>
+          <p className="music-artist text-[10px] md:text-xs">
+            {musicList[currentMusicIndex].artist}
+          </p>
         </div>
       </div>
     </div>
