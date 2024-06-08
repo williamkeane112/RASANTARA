@@ -18,19 +18,19 @@ import Sidebar from "../components/Sidebar";
 import MusikList from "../components/musikList";
 
 
-import { faLocationDot, faXmark, faSearch, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 // img
-import sumatera2Img from "../assets/img/SumateraImg2.png";
+// import sumatera2Img from "../assets/img/SumateraImg2.png";
 
 // Router
 
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 // item
-import ListComp from "../components/ListComp";
-import Sidebar from "../components/Sidebar";
+// import ListComp from "../components/ListComp";
+// import Sidebar from "../components/Sidebar";
 function Sumatera() {
-  const queryParams = new URLSearchParams(location.search);
+  // const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("pulau") || "";
   const [Small, isSmall] = useState(false);
   const [Hide, SetHideExpan] = useState(false);

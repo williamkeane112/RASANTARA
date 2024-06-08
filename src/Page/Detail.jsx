@@ -20,7 +20,7 @@ function Detail() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
       if (window.innerWidth >= 640) {
-        toggleSidebar(false); // Ensure sidebar is not open on desktop view by default
+        toggleSidebar(false);
       }
     };
 
