@@ -11,8 +11,8 @@ import Bali from "./Page/Bali";
 import NusaTengaraTImur from "./Page/NusaTengaraTimur";
 import NusaTenggaraBarat from "./Page/NusaTenggaraBarat";
 import Papua from "./Page/Papua";
-import Register from "./auth/Register";
-import Login from "./auth/Login";
+import History from "./Page/History";
+import BookMark from "./Page/BookMark";
 function App() {
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homeEN" element={<HomeEn />} />
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/detail/:id" element={<Detail />} />
           <Route path="/Sumatera" element={<Sumatera />} />
           <Route path="/Jawa" element={<Jawa />} />
           <Route path="/kalimantan" element={<Kalimantan />} />
@@ -29,8 +29,9 @@ function App() {
           <Route path="/NusaTenggaraTimur" element={<NusaTengaraTImur />} />
           <Route path="/NusaTenggaraBarat" element={<NusaTenggaraBarat />} />
           <Route path="/Papua" element={<Papua />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/bookmark" element={<BookMark />} />
+
         </Routes>
       </Router>
     </>

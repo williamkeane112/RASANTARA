@@ -1,14 +1,14 @@
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // Component
 import Sidebar from "../components/SidebarDetail";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Detail() {
-
   const [sidebar, toggleSidebar] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
@@ -30,15 +30,37 @@ function Detail() {
     };
   }, []);
 
+  // show data
+  const { id } = useParams();
+  const [data, setData] = useState({});
+  const [detail, setDetails] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const result = await axios.get(`http://127.0.0.1:8000/api/makanan/${id}`);
+        setData(result.data);
+        setDetails({
+          ...result.data.detail,
+          bahanBahan: JSON.parse(result.data.detail.bahanBahan),
+          langkahLangkah: JSON.parse(result.data.detail.langkahLangkah)
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+  }, [id]);
   return (
-    <div className={`${sidebar ? 'flex' : 'block'} md:flex overflow-auto bg-gray-100`}>
+    <div className={`${sidebar ? "flex" : "block"} md:flex overflow-auto bg-gray-100`}>
       {/* Navbar */}
-      { !isMobile && <Sidebar toggle={click} /> }
-      { sidebar && isMobile && <Sidebar toggle={click}/> }
+      {!isMobile && <Sidebar toggle={click} />}
+      {sidebar && isMobile && <Sidebar toggle={click} />}
       {/* End navbar */}
 
       {/* Main Content */}
-      <div className={`${sidebar && isMobile ? 'hidden' : ''} flex justify-between mx-10 mt-6 md:hidden h-12`}>
+      <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-10 mt-6 md:hidden h-12`}>
         <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
         </svg>
@@ -52,7 +74,7 @@ function Detail() {
               className="p-4 h-full w-full"
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/nIE7Hg2YK4Y?si=2QxZJbN_MgIlf5z3"
+              src={`https://www.youtube.com/embed/`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -61,16 +83,19 @@ function Detail() {
             ></iframe>
           </div>
 
-          <div className="mt-10 ml-10 text-lg md:text-xl font-bold font-sans tracking-wide">Tekwan | Palembang, Sumatera Selatan</div>
+          <div className="mt-10 ml-10 text-lg md:text-xl md:ml-20 font-bold font-sans tracking-wide">
+            {data.makanan} | {data.daerah}
+            {/* {data.tutorial} */}
+          </div>
 
           <button className="mt-10 mx-auto md:hidden p-2 bg-[#2F7377] w-9/12 rounded-md flex items-center justify-between">
-              <div>
-                <svg className="ml-2 text-white size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
-                </svg>
-              </div>
-              <div className="font-sans text-white">Simpan Resep</div>
-              <div></div>
+            <div>
+              <svg className="ml-2 text-white size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
+              </svg>
+            </div>
+            <div className="font-sans text-white">Simpan Resep</div>
+            <div></div>
           </button>
 
           <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-2xl w-10/12 h-auto">
@@ -86,22 +111,18 @@ function Detail() {
             </div>
 
             <div className="h-auto w-full ml-4 mb-4">
-              <h1 className="w-10/12">
-                Tekwan berasal dari akulturasi budaya Palembang dan Tionghoa, di mana orang Tionghoa yang menetap di Palembang memperkenalkan makanan berbahan dasar ikan. Tekwan diadopsi oleh masyarakat Palembang dengan menambahkan kuah
-                kaldu mirip sup dan bumbu khas daerah. Disebut berasal dari &quot;Berkotek Samo Kawan&quot; atau bahasa Hokkien &quot;tâi-oân&quot; yang mirip dengan Taiwan. Di negara lain, tekwan serupa dengan fishcake, tapi lebih kenyal
-                dan gurih. Banyak penggemar kuliner lebih memilih tekwan ketimbang fishcake.
-              </h1>
+              <h1 className="w-10/12">{detail.latarBelakang}</h1>
             </div>
           </div>
 
           <button className="mt-10 mx-auto md:hidden p-2 border-2 border-black w-9/12 rounded-md flex items-center justify-between">
-              <div>
-                <svg className="ml-2 size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"></path>
-                </svg>
-              </div>
-              <div className="font-sans font-bold">Bagikan</div>
-              <div></div>
+            <div>
+              <svg className="ml-2 size-6" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"></path>
+              </svg>
+            </div>
+            <div className="font-sans font-bold">Bagikan</div>
+            <div></div>
           </button>
 
           <div className="mx-auto mt-10 bg-gray-100 rounded-md shadow-2xl w-10/12 h-auto">
@@ -118,19 +139,9 @@ function Detail() {
 
             <div className="h-auto w-full ml-4 mb-4">
               <ul className="w-11/12 list-disc ml-5">
-                <li>500 gram putih telur</li>
-                <li>300 gram terigu</li>
-                <li>330 gram tapioka</li>
-                <li>gula pasir, kaldu bubuk dan garam secukupnya</li>
-                <li>1500 ml air</li>
-                <li>5 siung bawang putih</li>
-                <li>1 sendok teh ebi, halus</li>
-                <li>3 siung bawang merah</li>
-                <li>1/2 sendok teh lada bubuk</li>
-                <li>1 sendok makan udang segar</li>
-                <li>bengkuang secukupnya</li>
-                <li>jamur kuping dan bunga sedap malam, rendam di air hangat</li>
-                <li>gula pasir dna garam secukupnya</li>
+                {detail?.bahanBahan?.map((bahan ,item) => (
+                  <li key={item}>{bahan}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -142,20 +153,9 @@ function Detail() {
 
             <div className="h-auto w-full ml-4 mb-4">
               <ol className="w-11/12 list-decimal ml-5 space-y-6">
-                <li>Masukkan semua bahan kecuali tepung tapioka atau sagu, ke dalam food processor atau chopper, giling hingga halus.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-1.jpg" alt="ok" />
-                <li>Pindahkan ke wadah.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-2.jpg" alt="ok" />
-                <li>Tambahkan tepung tapioka, aduk hingga rata.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-3.jpg" alt="ok" />
-                <li>Didihkan air panci, kecilkan api.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-4.jpg" alt="ok" />
-                <li>Cubit adonan dengan ukuran sesuai selera.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-5.jpg" alt="ok" />
-                <li>Rebus dengan api kecil hingga matang.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-6.jpg" alt="ok" />
-                <li>Angkat dan tiriskan.</li>
-                <img className="h-24 w-32" src="../src/assets/img-langkah-langkah/Tekwan-7.jpg" alt="ok" />
+              {detail?.langkahLangkah?.map((langkah, index) => (
+                <li key={index}>{langkah}</li>
+              ))}
               </ol>
             </div>
           </div>
@@ -166,7 +166,7 @@ function Detail() {
         <div className="hidden h-56 w-full md:h-screen md:w-3/12 md:flex md:justify-center md:items-start">
           <div className="md:fixed w-full md:w-2/12">
             <div className="mx-5 md:mx-0 mt-5 h-48 md:mt-10 md:h-60 bg-gray-150 rounded-md shadow-2xl flex flex-col justify-evenly items-center">
-              <Link to={-1}  className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
+              <Link to={-1} className="p-2 bg-gray-500 w-3/4 rounded-md flex items-center justify-between">
                 <div>
                   <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>

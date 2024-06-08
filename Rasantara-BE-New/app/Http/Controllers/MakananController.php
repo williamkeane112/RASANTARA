@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\makanan;
+use App\Models\Makanan as ModelsMakanan;
 use Illuminate\Http\Request;
 
 class MakananController extends Controller
@@ -13,7 +13,7 @@ class MakananController extends Controller
     public function index(Request $request)
     {
         $query = $request->input('query');
-        $data = makanan::where('daerah','LIKE',"%{$query}%")->get();
+        $data = ModelsMakanan::where('daerah','LIKE',"%{$query}%")->get();
         return response()->json($data); 
     }
 
@@ -30,38 +30,19 @@ class MakananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(makanan $makanan)
+    public function show($id)
     {
-        //
+        $data = ModelsMakanan::with('detail')->find($id);
+        if (!$data) {
+            return response()->json(['message' => 'Data not found'], 404);
+        }
+        return response()->json($data);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(makanan $makanan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, makanan $makanan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(makanan $makanan)
-    {
-        //
-    }
+    
 }

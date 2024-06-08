@@ -40,15 +40,6 @@ function Sumatera() {
             </Link>
           </div>
           {/* end NavBar*/}
-
-          {/* search */}
-          <div className="my-4 lg:mx-1 ml-8 mx-5 ">
-            <div className="flex items-center relative">
-              <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
-              <input type="text" placeholder={`Cari resep makan di daerah pulau ${location.pathname.replace("/", "")}`} className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] border border-black rounded-md" />
-            </div>
-          </div>
-          {/* end search */}
           <ListComp />
           {/* List Makanan */}
         </section>

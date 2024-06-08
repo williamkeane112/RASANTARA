@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\MakananController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,6 @@ Route::post('/register', [AuthController::class ,'register'])->middleware('guest
 Route::post('/login', [AuthController::class ,'login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api');
+
+Route::resource('bookmark', BookmarkController::class);
+Route::get('/bookmark/{id}', [BookmarkController::class, 'show']);

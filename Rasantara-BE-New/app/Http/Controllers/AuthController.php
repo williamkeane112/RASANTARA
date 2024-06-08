@@ -54,12 +54,19 @@ class AuthController extends Controller
 
     public function me()
     {
-        auth()->logout();
-        return response()->json(['massage', 'Success Logout']);
+        $user = auth()->user();
+
+        if ($user) {
+            return response()->json($user);
+        }
+    
+        return response()->json(['message' => 'Unauthorized'], 401);
     }
       
 
     public function logout()
     {
+        auth()->logout();
+        return response()->json(['massage', 'Success Logout']);
     }
 }
