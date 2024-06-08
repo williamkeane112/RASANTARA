@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('makanan', MakananController::class);
 Route::post('/register', [AuthController::class ,'register'])->middleware('guest');
 Route::post('/login', [AuthController::class ,'login'])->middleware('guest');
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api');
 
 Route::resource('bookmark', BookmarkController::class);
