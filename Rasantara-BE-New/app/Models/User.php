@@ -41,4 +41,8 @@ public function bookmarks()
 {
     return $this->hasMany(Bookmark::class);
 }
+public function history()
+{
+    return $this->hasMany(history::class);
+}
 }

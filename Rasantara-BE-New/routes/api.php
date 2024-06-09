@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MakananController;
 use App\Models\Bookmark;
 use Illuminate\Http\Request;
@@ -27,8 +28,12 @@ Route::post('/register', [AuthController::class ,'register'])->middleware('guest
 Route::post('/login', [AuthController::class ,'login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api');
-Route::get('/getbookmarks/{user_id}', [BookmarkController::class, 'getBookmarks']);
 
-
+// bookmark
 Route::resource('bookmark', BookmarkController::class);
 Route::get('/bookmark/{id}', [BookmarkController::class, 'show']);
+Route::get('/getbookmarks/{user_id}', [BookmarkController::class, 'getBookmarks']);
+// history
+Route::resource('history', HistoryController::class);
+
+Route::delete('/history', [HistoryController::class, 'destroy']);
