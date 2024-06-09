@@ -9,6 +9,7 @@ import Gemufamire from "../assets/audio/Gemufamire.m4a";
 import Mejangeran from "../assets/audio/Mejangeran.m4a";
 import Cupakgerantang from "../assets/audio/Cupakgerantang.m4a";
 import Sipatokaan from "../assets/audio/Sipatokaan.m4a";
+import Cikcikperiuk from "../assets/audio/Cikcikperiuk.m4a";
 
 import { useLocation } from "react-router-dom";
 
@@ -20,7 +21,8 @@ const musicList = [
   { title: "Gemu Famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire, region: "ntt" },
   { title: "Mejangeran", artist: "Lagu Bali", audioSrc: Mejangeran, region: "bali" },
   { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang, region: "ntb" },
-  { title: "Sipatokaan", artist: "Lagu Sulawesi Utara", audioSrc: Sipatokaan, region: "sulawesi" }
+  { title: "Sipatokaan", artist: "Lagu Sulawesi Utara", audioSrc: Sipatokaan, region: "sulawesi" },
+  { title: "Cik Cik Periuk", artist: "Lagu Kalimantan Timur", audioSrc: Cikcikperiuk, region: "kalimantan" }
 
 ];
 

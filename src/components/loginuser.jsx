@@ -11,6 +11,9 @@ function LoginModal() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [logoutSuccess, setLogoutSuccess] = useState(false); 
 
   const handleLoginModalToggle = () => {
     if (localStorage.getItem("token")) {
@@ -62,11 +65,13 @@ function LoginModal() {
       localStorage.setItem("token", response.data.access_token);
       console.log(response.data);
       setIsLoginModalOpen(false);
+      setLoginSuccess(true);
     } catch (error) {
       console.log(error);
+      setError("Username atau password salah. Silakan coba lagi.");
     }
   };
-  // logout func
+
   const handelLogout = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -82,6 +87,8 @@ function LoginModal() {
       );
       localStorage.removeItem("token");
       console.log(response.data);
+      setLogoutSuccess(true);
+      setIsLogin(false);
     } catch (error) {
       console.log(error);
     }
@@ -115,6 +122,7 @@ function LoginModal() {
                   <FontAwesomeIcon icon={faLock} className="absolute text-xl text-[#2F7377] mt-8 ml-2" />
                   <input type="password" required id="password" className="rounded-md pl-10 h-10 md:w-[27rem] shadow-xl shadow-offset-x-lg shadow-offset-y-none" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
+                {error && <p className="text-red-500 text-sm">{error}</p>}
                 <div className="button items-center flex justify-center flex-col mt-5 mb-5">
                   <button type="submit" className="bg-[#2F7377] mb-2 text-white rounded-md h-10 w-[15rem]">
                     Login
@@ -122,7 +130,7 @@ function LoginModal() {
                   <button type="button" onClick={handleCreateAccountToggle} className="text-sm underline">
                     Belum punya akun?
                   </button>
-                </div>
+                  </div>
               </form>
             </div>
           </div>
@@ -193,6 +201,26 @@ function LoginModal() {
                   LOGOUT
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+        {loginSuccess && (
+          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
+            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
+              <button onClick={() => setLoginSuccess(false)} className="text-xl ml-10 text-gray-600 absolute md:top-3 -top-0.5 right-2">
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+              <p className="text-lg text-center text-green-500">Login berhasil!</p>
+            </div>
+          </div>
+        )}
+        {logoutSuccess && ( 
+          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
+            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
+              <button onClick={() => setLogoutSuccess(false)} className="text-xl ml-10 text-gray-600 absolute md:top-3 -top-0.5 right-2">
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+              <p className="text-lg text-center text-red-500">Logout Berhasil</p>
             </div>
           </div>
         )}
