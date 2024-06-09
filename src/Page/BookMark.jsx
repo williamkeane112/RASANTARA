@@ -59,7 +59,7 @@ function BookMark() {
     const fetchData = async () => {
       if (!user_id) return;
       try {
-        const query = isSearch ? `?query=${isSearch}` : `?page=${currentPage}`
+        const query = isSearch ? `?query=${isSearch}` : `?page=${currentPage}`;
         const result = await axios.get(`http://127.0.0.1:8000/api/bookmark/${user_id}${query}`);
         const totalItems = result.data.total;
         setData(result.data.data);
@@ -72,17 +72,17 @@ function BookMark() {
     console.log(data);
 
     fetchData();
-  }, [user_id,  currentPage,isSearch,]);
+  }, [user_id, currentPage, isSearch]);
 
   const handlePageChange = (page) => {
     if (page > 0 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
-  
+
   const handleSearchSubmit = (searchTerm) => {
     setIsSearch(searchTerm);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
   // hapus bookmark func
   const deleteBookmark = async (id) => {
@@ -97,24 +97,14 @@ function BookMark() {
   };
   return (
     <>
-      <div className="h-screen w-full flex bg-gray-100 overflow-auto">
-        {/* Navbar */}
-        {!isMobile && <Sidebar toggle={click} />}
-        {sidebar && isMobile && <Sidebar toggle={click} />}
-        {/* End navbar */}
-
-        <div className="h-full w-full md:w-8/12 p-4 px-8">
-          <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-4 my-4 md:hidden h-12`}>
-            <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
-            </svg>
-            <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
-          </div>
-
+      <div className="h-screen grid grid-cols-12 bg-gray-100 overflow-auto">
+        <div className="lg:col-span-1 col-span-12">
+          <Sidebar />
+        </div>
+        {/* section 2 */}
+        <div className="md:col-span-8 lg:-ml-6 col-span-12  p-4 px-8">
           <h1 className="text-4xl font-bold">Tersimpan</h1>
-
           <div className="mt-3 border border-t-2 border-black"></div>
-
           <div className="mt-6 ">
             <div className="my-4 lg:mx-1 md:ml-8 md:mx-5 ">
               <div className="flex items-center relative">
@@ -127,24 +117,23 @@ function BookMark() {
           </div>
           <div className="">
             {data.map((datas, index) => (
-              <div key={index} className="mb-4 lg:mx-1 ml-8 mx-5">
+              <div key={index} className="mb-4 mx-2">
                 <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid lg:grid-cols-2 grid-cols-1 gap-2">
-                  <div className="lg:w-44 flex justify-center">
+                  <div className="lg:w-36 w-[100px] md:w-[115px] flex justify-center">
                     <img src={`http://127.0.0.1:8000/${datas.makanan.img}`} alt="" className="rounded-lg w-full" />
                   </div>
-                  <div className="lg:-ml-[180px] mt-[10px] lg:mx-6 mx-3 px-2 pb-5">
+                  <div className="lg:-ml-[230px] mt-[10px] lg:mx-4 mx-3 px-2 pb-5">
                     <div className="flex justify-between items-center">
                       <div>
-                        <h3 className="font-bold text-xl leading-[14px]"></h3>
-                        <h3 className="font-bold text-base md:text-xl leading-[14px]">{datas.makanan.makanan}</h3>
-                        <span className="font-bold text-[8px] md:text-[11px]">{datas.makanan.daerah}</span>
+                        <h3 className="font-bold lg:text-xl leading-[14px]">{datas.makanan.makanan}</h3>
+                        <span className="font-bold text-[8px] lg:text-[13px]">{datas.makanan.daerah}</span>
                       </div>
                       <button onClick={() => deleteBookmark(datas.id)}>
-                        <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377]" />
+                        <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377] text-xl" />
                       </button>
                     </div>
-                    <div className="w-full">
-                      <p className="lg:text-[11px] md:line-clamp-3 line-clamp-2 text-[8px] md:text-[11px] mt-1">{datas.makanan.deskripsi}</p>
+                    <div className="w-full truncate">
+                      <p className="lg:text-[13px] md:line-clamp-3 line-clamp-2 text-[8px] md:text-[15px] mt-1">{datas.makanan.deskripsi}</p>
                     </div>
                   </div>
                 </div>
@@ -180,8 +169,9 @@ function BookMark() {
           </div>
           {/* End Pagination */}
         </div>
+        {/* section 2 */}
         {/* Tombol Kembali */}
-        <div className="hidden h-full w-4/12 md:flex justify-center ">
+        <div className="hidden col-span-3 lg:-ml-6 md:flex justify-center ">
           <div className="mt-20 h-20 w-10/12 bg-white shadow-xl rounded-md flex justify-center items-center">
             <div className="p-2 bg-[#2F7377] w-10/12 rounded-md flex items-center justify-between">
               <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

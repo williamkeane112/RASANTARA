@@ -5,27 +5,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function History() {
-  const [sidebar, toggleSidebar] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-
-  const click = () => {
-    toggleSidebar(!sidebar);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-      if (window.innerWidth >= 640) {
-        toggleSidebar(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   //   get user id
   const [user_id, setUserId] = useState();
   useEffect(() => {
@@ -88,43 +67,34 @@ function History() {
   };
   // end func
   return (
-    <div className="h-screen w-full flex bg-gray-100 overflow-auto">
-      {/* Navbar */}
-      {!isMobile && <Sidebar toggle={click} />}
-      {sidebar && isMobile && <Sidebar toggle={click} />}
-      {/* End navbar */}
-
-      <div className="h-full w-full md:w-8/12 p-2 px-4 md:p-4 md:px-8">
-        <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-4 my-4 md:hidden h-12`}>
-          <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
-          </svg>
-          <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl translate" onClick={click} />
-        </div>
-
+    <div className="h-screen grid grid-cols-12 bg-gray-100 overflow-auto">
+      <div className="lg:col-span-1 col-span-12">
+        <Sidebar />
+      </div>
+      {/* sctio 2 */}
+      <div className="md:col-span-8 col-span-12 p-2 px-4 lg:-ml-6 mx-6 md:p-4 md:px-8">
         <h1 className="text-4xl font-bold">History</h1>
-
         <div className="mt-3 border border-t-2 border-black"></div>
-
         <div className="mt-6 flex justify-end">
           <button onClick={() => delateHistory()}>
-            <h1 className="text-red-600 hover:text-red-700 hover:scale-125 transition-all duration-500">Hapus Semua</h1>
+            <h1 className="text-red-600 hover:text-red-700 text-2xl hover:scale-125 transition-all duration-500">Hapus Semua</h1>
           </button>
         </div>
         {/* data */}
         {data.map((data, index) => (
-          <div key={index} className="mt-8 min-h-24 h-auto w-full grid grid-cols-12 rounded-md bg-white shadow-xl">
+          <div key={index} className="mt-6 min-h-24 h-auto w-full grid grid-cols-12 rounded-md bg-white shadow-xl">
             <div className="col-span-3 md:col-span-2">
               <img className="w-full h-full" src={`http://127.0.0.1:8000/${data.makanan.img}`} alt="imeg" />
             </div>
-            <div className="col-span-7 md:col-span-8 px-3">
-              <h1 className="text-xl md:text-2xl font-bold mt-2">{data.makanan.makanan}</h1>
-              <h1 className="text-xs font-bold">{data.makanan.daerah}</h1>
-              <h1 className="mb-4 mt-2 text-[0.6rem] md:text-xs leading-5 col-span-10">{data.makanan.deskripsi}</h1>
-            </div>
-
-            <div className="col-span-2">
-              <h1 className="text-sm md:text-base font-bold tracking-wider mt-2">{data.updated_at.split("T")[0]}</h1>
+            <div className="col-span-9 md:col-span-8 px-3">
+              <div className="flex items-center ">
+                <h1 className="lg:text-2xl text-[15px] font-bold mt-2">{data.makanan.makanan}</h1>
+                <h1 className="text-[12px] lg:text-base font-bold tracking-wider mt-2 ml-auto">{data.updated_at.split("T")[0]}</h1>
+              </div>
+              <h1 className="lg:text-xs text-[11px] font-bold">{data.makanan.daerah}</h1>
+              <div className="w-full truncate">
+                <h1 className="mb-4 lg:mt-2 mt-1 text-[0.6rem] md:text-xs leading-5 col-span-10 line-clamp-3">{data.makanan.deskripsi}</h1>
+              </div>
             </div>
           </div>
         ))}
@@ -158,9 +128,9 @@ function History() {
         </div>
         {/* End Pagination */}
       </div>
-
+      {/* end section 2 */}
       {/* Tombol Kembali */}
-      <div className="hidden h-full w-4/12 md:flex justify-center">
+      <div className="hidden col-span-3 -ml-5 md:flex justify-center">
         <div className="mt-20 h-64 w-10/12 bg-white shadow-xl rounded-md flex flex-col justify-evenly items-center">
           <div className="p-2 bg-[#2F7377] w-10/12 rounded-md flex items-center justify-between">
             <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
