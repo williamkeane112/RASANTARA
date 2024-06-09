@@ -14,8 +14,7 @@ import BaliImg2 from "../assets/img/BaliImg2.png";
 
 import ListComp from "../components/ListComp";
 import Sidebar from "../components/Sidebar";
-import MusikList from "../components/musikList";
-
+import MusikList from "../components/MusikList";
 
 // img
 
@@ -106,7 +105,11 @@ function List() {
         {/* End SideBar */}
 
         {/* Section 2*/}
-        <section className={`lg:col-span-5 ${isSmall ? "col-span-12" : ""} ${Hide ? "lg:hidden lg:translate-y-0 translate-y-[73%] transition-transform duration-1000 ease-in-out" : "block transition-transform duration-1000 ease-in-out"} lg:-ml-6 ml-4 lg:mx-0 mx- overflow-y-auto max-h-screen no-ScrollBar max-w-full`}>
+        <section
+          className={`lg:col-span-5 ${isSmall ? "col-span-12" : ""} ${
+            Hide ? "lg:hidden lg:translate-y-0 translate-y-[73%] transition-transform duration-1000 ease-in-out" : "block transition-transform duration-1000 ease-in-out"
+          } lg:-ml-6 ml-4 lg:mx-0 mx- overflow-y-auto max-h-screen no-ScrollBar max-w-full`}
+        >
           {/* Navbar */}
           <div className="lg:mt-4 mt-14 my-3 flex items-center justify-between mr-5 lg:mx-1 mx-4">
             <div className="flex items-center">

@@ -12,10 +12,20 @@ class MakananController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->input('query');
-        $data = ModelsMakanan::where('daerah','LIKE',"%{$query}%")->get();
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
+    
+        $query = ModelsMakanan::where('daerah', 'LIKE', "%{$query1}%");
+    
+        if ($query2) {
+            $query->where('makanan', 'LIKE', "%{$query2}%");
+        }
+    
+        $data = $query->get();
+    
         return response()->json($data); 
     }
+    
 
     /**
      * Show the form for creating a new resource.

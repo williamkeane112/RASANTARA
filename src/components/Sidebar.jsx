@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faBars, faClock, faSearch, faGear, faHome } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import FormSearch from "./FormSearch";
 
 // img
 function Sidebar() {
@@ -16,12 +17,7 @@ function Sidebar() {
             <button onClick={togelOpen} className="flex lg:flex-col items-center lg:mb-12 lg:mx-auto ml-7">
               <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl " />
             </button>
-            <div className="my-4 lg:mx-1 lg:hidden mx-3">
-              <div className="flex items-center relative">
-                <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2 " />
-                <input type="text" className="w-full lg:text-md font-semibold text-sm pl-10 pr-20 py-[8px] rounded-md shadow-[5px_8px_10px_3px_rgba(0,0,0,0.3)]" />
-              </div>
-            </div>
+              <span className="py-4 ml-10 lg:hidden">RASANTARA</span>
           </div>
 
           <button className="lg:flex flex-col hidden items-center mb-12 ">

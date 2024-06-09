@@ -4,31 +4,32 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "../components/SidebarDetail";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import FormSearch from "../components/FormSearch";
 
 function BookMark() {
   // search data id func
   const [user_id, setUserId] = useState();
 
   const [sidebar, toggleSidebar] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-  
-    const click = () => {
-      toggleSidebar(!sidebar);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  const click = () => {
+    toggleSidebar(!sidebar);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      if (window.innerWidth >= 640) {
+        toggleSidebar(false);
+      }
     };
-  
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 640);
-        if (window.innerWidth >= 640) {
-          toggleSidebar(false);
-        }
-      };
-  
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -50,21 +51,39 @@ function BookMark() {
 
   // bookmark list func
   const [data, setData] = useState([]);
+  const [isSearch, setIsSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 5;
   useEffect(() => {
     const fetchData = async () => {
       if (!user_id) return;
-
       try {
-        const result = await axios.get(`http://127.0.0.1:8000/api/bookmark/${user_id}`);
-        setData(result.data);
+        const query = isSearch ? `?query=${isSearch}` : `?page=${currentPage}`
+        const result = await axios.get(`http://127.0.0.1:8000/api/bookmark/${user_id}${query}`);
+        const totalItems = result.data.total;
+        setData(result.data.data);
+        setTotalPages(Math.ceil(totalItems / itemsPerPage));
       } catch (err) {
         console.log("ERROR", err);
       }
     };
+    console.log(totalPages);
+    console.log(data);
 
     fetchData();
-  }, [user_id]);
+  }, [user_id,  currentPage,isSearch,]);
 
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+  
+  const handleSearchSubmit = (searchTerm) => {
+    setIsSearch(searchTerm);
+    setCurrentPage(1); 
+  };
   // hapus bookmark func
   const deleteBookmark = async (id) => {
     try {
@@ -75,41 +94,34 @@ function BookMark() {
     } catch (error) {
       console.log(error);
     }
-  }
-    return (
+  };
+  return (
     <>
       <div className="h-screen w-full flex bg-gray-100 overflow-auto">
-
         {/* Navbar */}
         {!isMobile && <Sidebar toggle={click} />}
         {sidebar && isMobile && <Sidebar toggle={click} />}
         {/* End navbar */}
 
         <div className="h-full w-full md:w-8/12 p-4 px-8">
-        <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-4 my-4 md:hidden h-12`}>
-        <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
-        </svg>
-        <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
-        </div>
+          <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-4 my-4 md:hidden h-12`}>
+            <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
+            </svg>
+            <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
+          </div>
 
-            <h1 className="text-4xl font-bold">Tersimpan</h1>
+          <h1 className="text-4xl font-bold">Tersimpan</h1>
 
-            <div className="mt-3 border border-t-2 border-black"></div>
-
-            <div className="mt-6 flex justify-end">
-                <h1 className="text-red-600">Hapus Semua</h1>
-            </div>
+          <div className="mt-3 border border-t-2 border-black"></div>
 
           <div className="mt-6 ">
             <div className="my-4 lg:mx-1 md:ml-8 md:mx-5 ">
               <div className="flex items-center relative">
                 <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
-                <input
-                  type="text"
-                  placeholder={`Cari resep makan di daftar ${location.pathname.replace("/", "")} anda`}
-                  className="w-full lg:text-md font-semibold text-sm pl-8 py-[5px] rounded-md shadow-[3px_6px_8px_0.1px_rgba(0,0,0,0.3)]"
-                />
+                <div className="w-full">
+                  <FormSearch onSubmit={handleSearchSubmit} />
+                </div>
               </div>
             </div>
           </div>
@@ -127,10 +139,8 @@ function BookMark() {
                         <h3 className="font-bold text-base md:text-xl leading-[14px]">{datas.makanan.makanan}</h3>
                         <span className="font-bold text-[8px] md:text-[11px]">{datas.makanan.daerah}</span>
                       </div>
-                      <button
-                       onClick={() => deleteBookmark(datas.id)}
-                      >
-                        <FontAwesomeIcon icon={faBookmark} />
+                      <button onClick={() => deleteBookmark(datas.id)}>
+                        <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377]" />
                       </button>
                     </div>
                     <p className="text-[8px] md:text-[11px] mt-1">{datas.makanan.deskripsi}</p>
@@ -142,29 +152,32 @@ function BookMark() {
 
           {/* Pagination */}
           <div className="mx-auto mt-8 h-14 w-10/12 md:w-4/6 grid grid-cols-8">
-                <div className="col-span-2 p-1 px-4">
-                    <button className="bg-[#2F7377] h-full w-full rounded-md flex justify-center items-center">
-                        <svg className="text-white size-8" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.854 4.646a.5.5 0 010 .708L3.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clipRule="evenodd"></path><path fillRule="evenodd" d="M2.5 8a.5.5 0 01.5-.5h10.5a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clipRule="evenodd"></path></svg>
-                    </button>
-                </div>
-                <div className="col-span-4 flex justify-between items-center mx-4">
-                    <h1 className="text-[#2F7377]">1</h1>
-                    <h1 className="text-[#2F7377]">2</h1>
-                    <h1 className="text-[#2F7377]">3</h1>
-                    <h1 className="text-[#2F7377]">4</h1>
-                </div>
-                <div className="col-span-2 p-1 px-4">
-                    <button className="bg-[#2F7377] h-full w-full rounded-md flex justify-center items-center">
-                        <svg className="text-white size-8" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z" clipRule="evenodd"></path><path fillRule="evenodd" d="M2 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H2.5A.5.5 0 012 8z" clipRule="evenodd"></path></svg>
-                    </button>
-                </div>
+            <div className="col-span-2 p-1 px-4">
+              <button className="bg-[#2F7377] h-full w-full rounded-md flex justify-center items-center" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                <svg className="text-white size-8" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M5.854 4.646a.5.5 0 010 .708L3.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clipRule="evenodd"></path>
+                  <path fillRule="evenodd" d="M2.5 8a.5.5 0 01.5-.5h10.5a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clipRule="evenodd"></path>
+                </svg>
+              </button>
             </div>
-            {/* End Pagination */}
+            <div className="col-span-4 flex justify-between items-center mx-4">
+              {[...Array(totalPages).keys()].map((_, index) => (
+                <button key={index} className={`text-[#2F7377] ${currentPage === index + 1 ? "font-bold" : ""}`} onClick={() => handlePageChange(index + 1)}>
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+            <div className="col-span-2 p-1 px-4">
+              <button className="bg-[#2F7377] h-full w-full rounded-md flex justify-center items-center" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                <svg className="text-white size-8" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z" clipRule="evenodd"></path>
+                  <path fillRule="evenodd" d="M2 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H2.5A.5.5 0 012 8z" clipRule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          {/* End Pagination */}
         </div>
-
-        {/* pagination */}
-        <div className=""></div>
-
         {/* Tombol Kembali */}
         <div className="hidden h-full w-4/12 md:flex justify-center ">
           <div className="mt-20 h-20 w-10/12 bg-white shadow-xl rounded-md flex justify-center items-center">

@@ -44,9 +44,32 @@ class BookmarkController extends Controller
      */
     public function show($id)
     {
-        $bookmarks = Bookmark::with('makanan')->where('user_id', $id)->get();
+        $query = request()->input('query');
+    
+        // Build the query
+        $bookmarks = Bookmark::with('makanan')->where('user_id', $id);
+    
+        if ($query) {
+            $bookmarks->whereHas('makanan', function ($q) use ($query) {
+                $q->where('makanan', 'LIKE', "%{$query}%");
+            });
+        }
+        $total = $bookmarks->count();
+        $result = $bookmarks->limit(5)->offset((request()->input('page', 1) - 1) * 5)->get();
+    
+        return response()->json([
+            'total' => $total,
+            'data' => $result
+        ]);
+    }
+    public function getBookmarks($user_id)
+    {
+        $bookmarks = Bookmark::with('makanan')->where('user_id', $user_id)->get();
         return response()->json($bookmarks);
     }
+    
+    
+    
 
     /**
      * Show the form for editing the specified resource.
