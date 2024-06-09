@@ -8,6 +8,7 @@ import Yamko from "../assets/audio/Yamko.m4a";
 import Gemufamire from "../assets/audio/Gemufamire.m4a";
 import Mejangeran from "../assets/audio/Mejangeran.m4a";
 import Cupakgerantang from "../assets/audio/Cupakgerantang.m4a";
+import Cikcikperiuk from "../assets/audio/Cikcikperiuk.m4a";
 
 const musicList = [
   { title: "Manuk Dadali", artist: "Lagu Tradisional Jawa Barat", audioSrc: manukDadali },
@@ -17,6 +18,7 @@ const musicList = [
   { title: "Gemu famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire },
   { title: "Mejangeran", artist: "Lagu Bali", audioSrc: Mejangeran },
   { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang },
+  { title: "Cik Cik Periuk", artist: "Lagu Kalimantan Timur", audioSrc: Cikcikperiuk }
 ];
 
 function MusikHome() {
