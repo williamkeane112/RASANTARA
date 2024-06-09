@@ -143,7 +143,9 @@ function BookMark() {
                         <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377]" />
                       </button>
                     </div>
-                    <p className="text-[8px] md:text-[11px] mt-1">{datas.makanan.deskripsi}</p>
+                    <div className="w-full">
+                      <p className="lg:text-[11px] md:line-clamp-3 line-clamp-2 text-[8px] md:text-[11px] mt-1">{datas.makanan.deskripsi}</p>
+                    </div>
                   </div>
                 </div>
               </div>

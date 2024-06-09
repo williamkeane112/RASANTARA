@@ -4,10 +4,10 @@ import { faBookmark, faBars, faClock } from "@fortawesome/free-solid-svg-icons";
 // eslint-disable-next-line react/prop-types
 function SidebarDetail({toggle}) {
   return (
-    <nav className="col-span-1 w-[70px] max-h-[100%] border-r border-black">
-      <div className="mt-7 flex flex-col items-center">
+    <nav className="bg-white fixed col-span-1 top-0 right-0 w-[105px] h-screen border-r border-black z-20">
+      <div className="mt-6 flex flex-col items-center">
         <button className="flex flex-col items-center mb-20">
-          <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-2xl" onClick={toggle}/>
+          <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={toggle}/>
         </button>
         <button className="flex flex-col items-center mb-14">
           <FontAwesomeIcon icon={faBookmark} className="text-2xl" />
