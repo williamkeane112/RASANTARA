@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faBars, faClock, faSearch, faGear, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faBars, faClock, faGear, faHome } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import FormSearch from "./FormSearch";
 
 // img
 function Sidebar() {
@@ -17,7 +16,7 @@ function Sidebar() {
             <button onClick={togelOpen} className="flex lg:flex-col items-center lg:mb-12 lg:mx-auto ml-7">
               <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl " />
             </button>
-              <span className="py-4 ml-10 lg:hidden">RASANTARA</span>
+            <span className="py-4 ml-10 lg:hidden">RASANTARA</span>
           </div>
 
           <button className="lg:flex flex-col hidden items-center mb-12 ">
@@ -39,8 +38,12 @@ function Sidebar() {
         </div>
       </nav>
       {/* sidebar open */}
-      <div className={`absolute lg:hidden flex bg-white shadow-2xl w-[20%] h-screen mt-16 z-[9999] left-0 transform ${isOpen ? "translate-x-0 transition-transform duration-1000 ease-in-out" : "-translate-x-[120%] transition-transform duration-1000 ease-in-out"}`}>
-      <div className="mt-10 flex flex-col items-center mx-auto ">
+      <div
+        className={`absolute lg:hidden flex bg-white shadow-2xl w-[20%] h-screen mt-16 z-[9999] left-0 transform ${
+          isOpen ? "translate-x-0 transition-transform duration-1000 ease-in-out" : "-translate-x-[120%] transition-transform duration-1000 ease-in-out"
+        }`}
+      >
+        <div className="mt-10 flex flex-col items-center mx-auto ">
           <button className="flex flex-col  items-center mb-12 ">
             <FontAwesomeIcon icon={faHome} className="text-4xl text-[#2F7377]" />
           </button>

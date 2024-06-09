@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import FormSearch from "../components/FormSearch";
@@ -64,7 +64,7 @@ const ListComp = () => {
       const response = await axios.delete(`http://localhost:8000/api/bookmark/${bookmarkId}`);
       console.log(response.data);
       // Refresh the bookmark list
-      const updatedBookmarks = bookmark.filter((item) => item.id !== bookmarkId);
+      const updatedBookmarks = Bookmark.filter((item) => item.id !== bookmarkId);
       setBookmark(updatedBookmarks);
     } catch (error) {
       console.log(error);
@@ -105,7 +105,7 @@ const ListComp = () => {
         makanan_id,
       });
       console.log(response.data);
-      redirect('/detail/'+makanan_id);
+      redirect("/detail/" + makanan_id);
     } catch (error) {
       console.log(error);
     }
@@ -129,10 +129,10 @@ const ListComp = () => {
         >
           <div className="mb-4 lg:mx-1 lg:ml-2 mx-4">
             <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid grid-cols-2 gap-2">
-              <div className="lg:w-28 w-20 flex justify-center">
+              <div className="lg:w-28 w-[100px] md:w-[115px] flex justify-center">
                 <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg lg:w-full" />
               </div>
-              <div className="lg:-ml-[133px] -ml-[90px] mt-[10px] lg:mx-6 mx-2 px-2 pb-5">
+              <div className="lg:-ml-[133px] -ml-14 md:-ml-60 mt-[10px] lg:mx-6 mx-2 px-2 pb-5">
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-bold lg:text-xl text-sm leading-[14px]">{item.makanan}</h3>
@@ -149,7 +149,7 @@ const ListComp = () => {
                         deleteBookmark(bookmarkId);
                       }}
                     >
-                      <FontAwesomeIcon icon={faBookmark} className="lg:w-4 w-4 text-[#2F7377]" />
+                      <FontAwesomeIcon icon={faBookmark} className="lg:w-4 text-2xl text-[#2F7377]" />
                     </button>
                   ) : (
                     <button
@@ -162,13 +162,15 @@ const ListComp = () => {
                         Bookmark(item.id);
                       }}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="lg:w-4 w-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="lg:w-4 w-[17px]">
                         <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
                       </svg>
                     </button>
                   )}
                 </div>
-                <p className="lg:text-[11px] mt-1 text-[10px]">{item.deskripsi}</p>
+                <div className="w-full">
+                  <p className="lg:text-[11px] md:text-[15px] mt-1 text-[10px] lg:line-clamp-3 md:line-clamp-3 line-clamp-2">{item.deskripsi}</p>
+                </div>
               </div>
             </div>
           </div>
