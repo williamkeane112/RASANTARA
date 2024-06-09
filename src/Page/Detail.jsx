@@ -53,15 +53,21 @@ function Detail() {
     fetchUser();
   }, [id]);
   return (
-    <div className={`${sidebar ? "flex" : "block"} md:flex overflow-auto bg-gray-100`}>
+    <div className={`${sidebar ? "flex flex-row-reverse" : "block"} md:flex overflow-auto bg-gray-100`}>
       {/* Navbar */}
       {!isMobile && <Sidebar toggle={click} />}
-      {sidebar && isMobile && <Sidebar toggle={click} />}
-      {/* End navbar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full md:w-auto transform ${
+          sidebar && isMobile ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 md:relative md:translate-x-0 md:transition-none`}
+      >
+        <Sidebar toggle={click} />
+      </div>
+      {/* End Navbar */}
 
       {/* Main Content */}
       <div className={`${sidebar && isMobile ? "hidden" : ""} flex justify-between mx-10 mt-6 md:hidden h-12`}>
-        <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        <svg className={`text-[#2F7377] size-12 -mt-2`} stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
         </svg>
         <FontAwesomeIcon icon={faBars} alt="Icon Hamburger Menu" className="text-3xl" onClick={click} />
