@@ -29,7 +29,7 @@ function SidebarDetail() {
             <FontAwesomeIcon icon={faBookmark} className="text-3xl text-[#2F7377]" />
             <span className="lg:text-[11px] text-sm">Tersimpan</span>
           </Link>
-          <Link to="history" className="lg:flex flex-col hidden items-center">
+          <Link to="/history" className="lg:flex flex-col hidden items-center">
             <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl " />
             <span className="lg:text-[11px]">Riwayat</span>
           </Link>
