@@ -75,23 +75,24 @@ const ListComp = () => {
   // show function
   const queryParams = new URLSearchParams(location.search);
   const pulau = queryParams.get("pulau") || "";
-  const lang = queryParams.get("lang") || "";
+  const lang =  queryParams.get("lang") || "ind" || "en";
   const [isSearch, setIsSearch] = useState("");
 
   const fetchData = async () => {
     try {
       const query = isSearch ? `&query2=${isSearch}` : "";
-      if(lang === "ind"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}`);
-      setData(result.data);
-      } else if (lang === "en"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`);
+      if (lang === "ind") {
+        const result = await axios.get(`http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}`);
+        setData(result.data);
+      } else if (lang === "en") {
+        const result = await axios.get(`http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`);
         setData(result.data);
       }
     } catch (err) {
       console.log("ERROR", err);
     }
   };
+  
 
   useEffect(() => {
     fetchData();

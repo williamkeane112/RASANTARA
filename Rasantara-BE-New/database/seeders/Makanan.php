@@ -452,6 +452,66 @@ class Makanan extends Seeder
                     'img' => 'Makanan/IkanBakarManokwari.jpg',
                     'deskripsi' => 'Ikan Bakar Manokwari adalah ikan bakar khas Manokwari yang disajikan dengan sambal khas.',
                 ],
+                [
+                    'makanan' => 'Plecing Kangkung',
+                    'daerah' => 'Lombok, Nusa Tenggara Barat (NTB)',
+                    'img' => 'Makanan/PlecingKangkungLombok.jpg',
+                    'deskripsi' => 'Plecing Kangkung Lombok adalah sayur kangkung yang disajikan dengan sambal tomat pedas.',
+                ],
+                
+                [
+                    'makanan' => 'Sate Bulayak',
+                    'daerah' => 'Sumbawa, Nusa Tenggara Barat (NTB)',
+                    'img' => 'Makanan/SateBulayakSumbawa.jpg',
+                    'deskripsi' => 'Sate Bulayak Sumbawa adalah sate daging yang disajikan dengan bumbu kacang khas Sumbawa.',
+                ],
+                [
+                    'makanan' => 'Kolo',
+                    'daerah' => 'Flores, Nusa Tenggara Timur (NTT)',
+                    'img' => 'Makanan/KoloFlores.jpg',
+                    'deskripsi' => 'Kolo adalah hidangan mi dengan saus kacang khas Flores yang disajikan dengan irisan daging atau ikan.',
+                ],
+                [
+                    'makanan' => 'Ikan Woku',
+                    'daerah' => 'Maumere, Nusa Tenggara Timur (NTT)',
+                    'img' => 'Makanan/IkanWokuMaumere.jpg',
+                    'deskripsi' => 'Ikan Woku Maumere adalah hidangan ikan dengan bumbu khas Woku yang pedas dan gurih.',
+                ],
+                [
+                    'makanan' => 'Ayam Betutu',
+                    'daerah' => 'Bali dan Lombok, Nusa Tenggara Barat (NTB)',
+                    'img' => 'Makanan/AyamBetutuLombok.jpg',
+                    'deskripsi' => 'Ayam Betutu adalah ayam yang dimasak dengan bumbu rempah khas dan dibungkus dengan daun pisang untuk disangrai.',
+                ],
+                
+                [
+                    'makanan' => 'Pelecing Sasak',
+                    'daerah' => 'Lombok, Nusa Tenggara Barat (NTB)',
+                    'img' => 'Makanan/PelecingSasakLombok.jpg',
+                    'deskripsi' => 'Pelecing Sasak adalah hidangan sayur kangkung yang disajikan dengan sambal tomat pedas dan irisan tomat.',
+                ],
+                
+                [
+                    'makanan' => 'Bebek Betutu',
+                    'daerah' => 'Bali dan Lombok, Nusa Tenggara Barat (NTB)',
+                    'img' => 'Makanan/BebekBetutuLombok.jpg',
+                    'deskripsi' => 'Bebek Betutu adalah bebek yang dimasak dengan bumbu rempah khas dan dibungkus dengan daun pisang untuk disangrai.',
+                ],
+                [
+                    'makanan' => 'Ikan Belanga',
+                    'daerah' => 'Bajawa, Nusa Tenggara Timur (NTT)',
+                    'img' => 'Makanan/IkanBelangaBajawa.jpg',
+                    'deskripsi' => 'Ikan Belanga Bajawa adalah hidangan ikan yang dimasak dengan bumbu khas dan dibakar dalam belanga (periuk tanah).',
+                ],
+                
+                [
+                    'makanan' => 'Sup Kacang Merah Maumere',
+                    'daerah' => 'Maumere, Nusa Tenggara Timur (NTT)',
+                    'img' => 'Makanan/SupKacangMerahMaumere.jpg',
+                    'deskripsi' => 'Sup Kacang Merah Maumere adalah sup kacang merah yang dimasak dengan bumbu khas dan disajikan dengan nasi.',
+                ],
+                
+                
 
         ]);
         
