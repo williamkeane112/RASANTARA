@@ -1,6 +1,6 @@
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRotateBack, faBars, faBookOpen, faBookmark, faClipboardList, faShare, faShareSquare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBookOpen, faBookmark, faClipboardList, faShare } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 
 // Component
@@ -9,27 +9,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Detail() {
-  const [sidebar, toggleSidebar] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-
-  const click = () => {
-    toggleSidebar(!sidebar);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-      if (window.innerWidth >= 640) {
-        toggleSidebar(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   // show data
   const { id } = useParams();
   const [data, setData] = useState({});
@@ -52,10 +31,73 @@ function Detail() {
 
     fetchUser();
   }, [id]);
+
+  // get id user
+  const [user_id, setUserId] = useState();
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const headers = {};
+        if (token) {
+          headers["Authorization"] = `Bearer ${token}`;
+        }
+        const response = await axios.post("http://localhost:8000/api/me", {}, { headers });
+        setUserId(response.data.id);
+      } catch (error) {
+        console.error("Failed to fetch user ID", error);
+      }
+    };
+
+    fetchUserId();
+  }, []);
+  // status bookmark
+  const [bookmarks, setBookmark] = useState();
+  useEffect(() => {
+    const fetchBookmarks = async () => {
+      if (!user_id) return;
+      try {
+        const result = await axios.get(`http://localhost:8000/api/getbookmarks/${user_id}`);
+        setBookmark(result.data);
+      } catch (err) {
+        console.error("Failed to fetch bookmarks", err);
+      }
+    };
+
+    fetchBookmarks();
+  }, [user_id]);
+
+  // bookmark function
+  const [makanan_id, setMakananId] = useState("");
+  const Bookmark = async (makanan_id) => {
+    try {
+      const response = await axios.post("http://localhost:8000/api/bookmark", {
+        user_id,
+        makanan_id,
+      });
+      console.log(response.data);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // delete
+  const deleteBookmark = async (bookmarkId) => {
+    try {
+      const response = await axios.delete(`http://localhost:8000/api/bookmark/${bookmarkId}`);
+      console.log(response.data);
+      window.location.reload();
+      const updatedBookmarks = Bookmark.filter((item) => item.id !== bookmarkId);
+      setBookmark(updatedBookmarks);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // end bookmark function
   return (
     <div className="grid grid-cols-12 overflow-auto bg-gray-100">
       {/* navbar */}
-      <div className={`lg:relative fixed top-0 right-0 h-full w-full duration-300 z[999] lg:col-span-1 col-span-12`}>
+      <div className={`lg:relative fixed top-0 right-0 w-full duration-300 z[999] lg:col-span-1 col-span-12`}>
         <Sidebar />
       </div>
       {/* End Navbar */}
@@ -83,16 +125,38 @@ function Detail() {
           </div>
           {/* End makanan titel */}
           {/* Hide bookmark */}
-          <button className="py-2 w-full bg-[#2F7377] mt-4 rounded-lg lg:hidden block">
+
+          <button
+            className="py-2 w-full bg-[#2F7377] mt-4 rounded-lg lg:hidden block"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              const bookmarkItem = bookmarks && bookmarks.find((bookmarkItem) => bookmarkItem.makanan_id === detail.makanan_id);
+              if (bookmarkItem) {
+                // Bookmark exists, delete it
+                const bookmarkId = bookmarkItem.id;
+                deleteBookmark(bookmarkId);
+              } else {
+                // Bookmark does not exist, add it
+                setMakananId(detail.makanan_id);
+                Bookmark(detail.makanan_id);
+              }
+            }}
+          >
             <div className="flex items-center justify-between mx-5">
               <svg className="text-white text-xl" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
               </svg>
               <div>
-                <span className="text-lg font-semibold text-white mr-[75px]">Simpan Resep</span>
+                {bookmarks && bookmarks.find((bookmarkItem) => bookmarkItem.makanan_id === detail.makanan_id) ? (
+                  <span className="text-lg font-semibold text-white mr-[75px]">Tersimpan</span>
+                ) : (
+                  <span className="text-lg font-semibold text-white mr-[75px]">Simpan Resep</span>
+                )}
               </div>
             </div>
           </button>
+
           {/* End Hide bookmark */}
           {/* Latar Belakang */}
           <div className="bg-gray-100 w-full mt-7 rounded-lg shadow-[4px_5px_11px_0.9px_rgba(0,0,0,0.4)] mb-10">
@@ -157,16 +221,39 @@ function Detail() {
       <div className="col-span-3 w-full lg:block hidden">
         <div className="mx-7 mt-10 bg-gray-100 rounded-lg py-5 shadow-[4px_5px_11px_0.9px_rgba(0,0,0,0.4)]">
           <div className="mx-5">
-            <button className="py-2 w-full bg-[#2F7377] flex items-center rounded-md">
+            <Link to={-1} className="py-2 w-full bg-[#2F7377] flex items-center rounded-md">
               <FontAwesomeIcon icon={faArrowLeft} className="ml-4 text-white text-2xl" />
               <span className="ml-12 text-white font-semibold">Kembali</span>
-            </button>
-            <button className="py-2 my-3 w-full border border-black flex items-center rounded-md">
-              <svg className="size-6 ml-3" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
-              </svg>
-              <span className="ml-5  font-semibold">Simpan Resep</span>
-            </button>
+            </Link>
+            {bookmarks && bookmarks.find((bookmarkItem) => bookmarkItem.makanan_id === detail.makanan_id) ? (
+              <button
+                className="py-2 my-3 w-full border border-black flex items-center rounded-md"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  const bookmarkId = bookmarks.find((bookmarkItem) => bookmarkItem.makanan_id === detail.makanan_id).id;
+                  deleteBookmark(bookmarkId);
+                }}
+              >
+                <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377] ml-3 text-2xl" />
+                <span className="ml-10 font-semibold">Tersimpan</span>
+              </button>
+            ) : (
+              <button
+                className="py-2 my-3 w-full border border-black flex items-center rounded-md"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  setMakananId(detail.makanan_id);
+                  Bookmark(detail.makanan_id);
+                }}
+              >
+                <svg className="size-6 ml-3" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" d="M8 12l5 3V3a2 2 0 00-2-2H5a2 2 0 00-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 00-1-1H5a1 1 0 00-1 1v10.234z" clipRule="evenodd"></path>
+                </svg>
+                <span className="ml-5 font-semibold">Simpan Resep</span>
+              </button>
+            )}
             <button className="py-2 w-full border border-black flex items-center rounded-md">
               <FontAwesomeIcon icon={faShare} className="ml-4  text-2xl" />
               <span className="ml-10  font-semibold">Bagikan</span>

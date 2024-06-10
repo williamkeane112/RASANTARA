@@ -5,6 +5,7 @@ import axios from "axios";
 import Sidebar from "../components/SidebarDetail";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import FormSearch from "../components/FormSearch";
+import { Link } from "react-router-dom";
 
 function BookMark() {
   // search data id func
@@ -91,6 +92,7 @@ function BookMark() {
         id,
       });
       console.log(response.data);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +100,7 @@ function BookMark() {
   return (
     <>
       <div className="grid grid-cols-12 h-[100%] bg-gray-100 overflow-auto">
-        <div className={`lg:col-span-1 col-span-12 lg:relative fixed top-0 right-0 h-full w-full z-[999]`}>
+        <div className={`lg:col-span-1 col-span-12 lg:relative fixed top-0 right-0 w-full z-[999]`}>
           <Sidebar />
         </div>
         {/* section 2 */}
@@ -165,7 +167,7 @@ function BookMark() {
         </div>
         {/* section 2 */}
         {/* Tombol Kembali */}
-        <div className="hidden col-span-3 lg:-ml-6 md:flex justify-center ">
+        <Link to={-1} className="hidden col-span-3 lg:-ml-6 md:flex justify-center ">
           <div className="mt-20 h-20 w-10/12 bg-white shadow-xl rounded-md flex justify-center items-center">
             <div className="p-2 bg-[#2F7377] w-10/12 rounded-md flex items-center justify-between">
               <svg className="text-white size-6" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -175,7 +177,7 @@ function BookMark() {
               <div></div>
             </div>
           </div>
-        </div>
+        </Link>
         {/* End Tombol Kembali */}
       </div>
     </>

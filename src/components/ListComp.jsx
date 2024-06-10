@@ -54,6 +54,7 @@ const ListComp = () => {
         makanan_id,
       });
       console.log(response.data);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +64,7 @@ const ListComp = () => {
     try {
       const response = await axios.delete(`http://localhost:8000/api/bookmark/${bookmarkId}`);
       console.log(response.data);
+      window.location.reload();
       // Refresh the bookmark list
       const updatedBookmarks = Bookmark.filter((item) => item.id !== bookmarkId);
       setBookmark(updatedBookmarks);
@@ -81,13 +83,9 @@ const ListComp = () => {
   const fetchData = async () => {
     try {
       const query = isSearch ? `&query2=${isSearch}` : "";
-      if(lang === "ind"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}`);
+      const cekLang = lang === "ind" ? `http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}` : `http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`;
+      const result = await axios.get(cekLang);
       setData(result.data);
-      } else if (lang === "en"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`);
-        setData(result.data);
-      }
     } catch (err) {
       console.log("ERROR", err);
     }

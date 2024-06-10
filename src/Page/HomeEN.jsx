@@ -35,14 +35,14 @@ function Home() {
       <div className="IndonesiaMap">
         {/* Pulau Sumatera */}
         <div className="sumatera absolute md:bottom-20 bottom-56 md:left-8">
-          <Link to="/List?pulau=sumatera&&lang=en" className="sumatera">
+          <Link to="/List?pulau=sumater&&lang=en" className="sumatera">
             <img src={sumateraImg} alt="" className="md:w-[27rem] w-[16rem]" />
           </Link>
         </div>
 
         {/* Pulau Jawa */}
         <div className="jawa absolute md:bottom-6 bottom-48 md:left-[18rem] left-[10rem]">
-          <Link to="/List?pulau=jawa&&lang=en" className="jawa">
+          <Link to="/List?pulau=java&&lang=en" className="jawa">
             <img src={jawaImg} alt="" className="md:w-[29rem] w-[18rem]" />
           </Link>
         </div>

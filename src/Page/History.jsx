@@ -52,14 +52,19 @@ function History() {
       setCurrentPage(page);
     }
   };
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
     setCurrentPage(1);
+    setIsFilterOpen(!isFilterOpen)
   };
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   const FilterOpen = () => {
     setIsFilterOpen(!isFilterOpen);
+    console.log("Filter status:", !isFilterOpen);
   };
+  console.log(isFilterOpen);
   //   hapus semua data
   const delateHistory = async () => {
     try {
@@ -72,7 +77,7 @@ function History() {
   // end func
   return (
     <div className="h-screen grid grid-cols-12 bg-gray-100 overflow-auto">
-      <div className={`lg:relative fixed top-0 right-0 h-full w-full duration-300 z[999] lg:col-span-1 col-span-12`}>
+      <div className={`lg:relative fixed top-0 right-0 w-full duration-300 z[999] lg:col-span-1 col-span-12`}>
         <Sidebar />
       </div>
       {/* sctio 2 */}
@@ -80,36 +85,36 @@ function History() {
         <h1 className="text-4xl font-bold">History</h1>
         <div className="mt-3 border border-t-2 border-black"></div>
         <div className="mt-6 flex lg:justify-end justify-between items-center">
-          <button className="lg:hidden" onClick={FilterOpen}>
+          <button className="lg:hidden border border-black" onClick={FilterOpen}>
             <FontAwesomeIcon icon={faFilter} className="text-xl text-[#2F7377]" />
-            <div className={`${FilterOpen ? "hidden" : "absolute"} md:hidden justify-center z-[999] -mt-14 w-full absolute`}>
-              <div className="mt-20 h-64 w-10/12 bg-white shadow-xl rounded-md flex flex-col justify-evenly items-center">
-                <div className="h-40 w-10/12 rounded-md grid grid-rows-12 border border-gray-600 p-2">
-                  <div className="row-span-3 flex justify-start items-center space-x-1">
-                    <FontAwesomeIcon icon="fa-solid fa-filter" />
-                    <h1 className="font-semibold">Filter</h1>
+          </button>
+          <div className={`${isFilterOpen ? "translate-x-0 transition-all duration-500 ease-in-out" : "translate-x-full"} absolute md:hidden justify-center -mt-14 w-full`}>
+            <div className="mt-20 h-64 w-10/12 bg-white shadow-xl rounded-md flex flex-col justify-evenly items-center">
+              <div className="h-40 w-10/12 rounded-md grid grid-rows-12 border border-gray-600 p-2">
+                <div className="row-span-3 flex justify-start items-center space-x-1">
+                  <FontAwesomeIcon icon="fa-solid fa-filter" />
+                  <h1 className="font-semibold">Filter</h1>
+                </div>
+                <div className="row-span-1 border-t-2 border-gray-600"></div>
+                <div className="row-span-5 flex flex-col justify-between items-start py-1">
+                  <div className="flex justify-start space-x-2">
+                    <input className="appearance-none checked:bg-blue-500 border-none bg-gray-600 w-5 h-5 rounded-md" type="radio" name="filter" checked={filter === "terbaru"} onChange={() => handleFilterChange("terbaru")} id="" />
+                    <h1 className="text-sm">Terbaru</h1>
                   </div>
-                  <div className="row-span-1 border-t-2 border-gray-600"></div>
-                  <div className="row-span-5 flex flex-col justify-between items-start py-1">
-                    <div className="flex justify-start space-x-2">
-                      <input className="appearance-none checked:bg-blue-500 border-none bg-gray-600 w-5 h-5 rounded-md" type="radio" name="filter" checked={filter === "terbaru"} onChange={() => handleFilterChange("terbaru")} id="" />
-                      <h1 className="text-sm">Terbaru</h1>
-                    </div>
-
-                    <div className="flex justify-start space-x-2">
-                      <input className="appearance-none checked:bg-blue-500 border-none bg-gray-600 w-5 h-5 rounded-md" type="radio" name="filter" checked={filter === "terlama"} onChange={() => handleFilterChange("terlama")} id="" />
-                      <h1 className="text-sm">Terlama</h1>
-                    </div>
+                  <div className="flex justify-start space-x-2">
+                    <input className="appearance-none checked:bg-blue-500 border-none bg-gray-600 w-5 h-5 rounded-md" type="radio" name="filter" checked={filter === "terlama"} onChange={() => handleFilterChange("terlama")} id="" />
+                    <h1 className="text-sm">Terlama</h1>
                   </div>
-                  <div className="row-span-3 py-1">
-                    <button className="h-full w-full bg-[#2F7377] rounded-md text-white text-sm" onClick={() => fetchHistory()}>
-                      Apply
-                    </button>
-                  </div>
+                </div>
+                <div className="row-span-3 py-1">
+                  <button className="h-full w-full bg-[#2F7377] rounded-md text-white text-sm" onClick={() => fetchHistory()}>
+                    Apply
+                  </button>
                 </div>
               </div>
             </div>
-          </button>
+          </div>
+
           <button onClick={() => delateHistory()}>
             <h1 className="text-red-600 hover:text-red-700 text-2xl hover:scale-125 transition-all duration-500">Hapus Semua</h1>
           </button>
