@@ -18,9 +18,9 @@ const musicList = [
   { title: "Ayam Deh Lapeh", artist: "Lagu Sumatera Barat", audioSrc: ayamdehlapeh, region: "sumatera" },
   { title: "Sajojo", artist: "Lagu Papua", audioSrc: sajojo, region: "papua" },
   { title: "Yamko Rambe Yamko", artist: "Lagu Papua", audioSrc: Yamko, region: "papua" },
-  { title: "Gemu Famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire, region: "ntt" },
+  { title: "Gemu Famire", artist: "Lagu Nusa Tenggara Timur", audioSrc: Gemufamire, region: "NusaTenggaraTimur" },
   { title: "Mejangeran", artist: "Lagu Bali", audioSrc: Mejangeran, region: "bali" },
-  { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang, region: "ntb" },
+  { title: "Cupak Gerantang", artist: "Lagu Nusa Tenggara Barat", audioSrc: Cupakgerantang, region: "NusaTenggaraBarat" },
   { title: "Sipatokaan", artist: "Lagu Sulawesi Utara", audioSrc: Sipatokaan, region: "sulawesi" },
   { title: "Cik Cik Periuk", artist: "Lagu Kalimantan Timur", audioSrc: Cikcikperiuk, region: "kalimantan" }
 

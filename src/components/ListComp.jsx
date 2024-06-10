@@ -99,17 +99,22 @@ const ListComp = () => {
 
   // history
   const HistoryStore = async (makanan_id) => {
-    try {
-      const response = await axios.post("http://localhost:8000/api/history", {
-        user_id,
-        makanan_id,
-      });
-      console.log(response.data);
-      redirect("/detail/" + makanan_id);
-    } catch (error) {
-      console.log(error);
+    if (user_id) {
+      try {
+        const response = await axios.post("http://localhost:8000/api/history", {
+          user_id,
+          makanan_id,
+        });
+        console.log(response.data);
+        redirect("/detail/" + makanan_id);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      redirect(`/detail/${makanan_id}`);
     }
   };
+
   return (
     <>
       {/* <div className="my-4 lg:mx-1 lg:hidden  mx-3">
@@ -169,7 +174,7 @@ const ListComp = () => {
                   )}
                 </div>
                 <div className="w-full">
-                  <p className="lg:text-[11px] md:text-[15px] mt-1 text-[10px] lg:line-clamp-3 md:line-clamp-3 line-clamp-2">{item.deskripsi}</p>
+                  <p className="lg:text-[11px] md:text-[15px] mt-1 text-[10px] lg:line-clamp-2 md:line-clamp-3 line-clamp-2">{item.deskripsi}</p>
                 </div>
               </div>
             </div>

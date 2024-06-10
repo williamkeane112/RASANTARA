@@ -97,17 +97,17 @@ function BookMark() {
   };
   return (
     <>
-      <div className="h-screen grid grid-cols-12 bg-gray-100 overflow-auto">
-        <div className="lg:col-span-1 col-span-12">
+      <div className="grid grid-cols-12 h-[100%] bg-gray-100 overflow-auto">
+        <div className={`lg:col-span-1 col-span-12 lg:relative fixed top-0 right-0 h-full w-full z-[999]`}>
           <Sidebar />
         </div>
         {/* section 2 */}
-        <div className="md:col-span-8 lg:-ml-6 col-span-12  p-4 px-8">
+        <div className="md:col-span-8 lg:-ml-6 col-span-12 mt-16 pt-4 px-8">
           <h1 className="text-4xl font-bold">Tersimpan</h1>
           <div className="mt-3 border border-t-2 border-black"></div>
           <div className="mt-6 ">
             <div className="my-4 lg:mx-1 md:ml-8 md:mx-5 ">
-              <div className="flex items-center relative">
+              <div className="flex items-center relative ">
                 <FontAwesomeIcon icon={faSearch} alt="Search icon" className="absolute w-4 mx-2" />
                 <div className="w-full">
                   <FormSearch onSubmit={handleSearchSubmit} />
@@ -115,34 +115,28 @@ function BookMark() {
               </div>
             </div>
           </div>
-          <div className="">
-            {data.map((datas, index) => (
-              <div key={index} className="mb-4 mx-2">
-                <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid lg:grid-cols-2 grid-cols-1 gap-2">
-                  <div className="lg:w-36 w-[100px] md:w-[115px] flex justify-center">
-                    <img src={`http://127.0.0.1:8000/${datas.makanan.img}`} alt="" className="rounded-lg w-full" />
-                  </div>
-                  <div className="lg:-ml-[230px] mt-[10px] lg:mx-4 mx-3 px-2 pb-5">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h3 className="font-bold lg:text-xl leading-[14px]">{datas.makanan.makanan}</h3>
-                        <span className="font-bold text-[8px] lg:text-[13px]">{datas.makanan.daerah}</span>
-                      </div>
-                      <button onClick={() => deleteBookmark(datas.id)}>
-                        <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377] text-xl" />
-                      </button>
-                    </div>
-                    <div className="w-full truncate">
-                      <p className="lg:text-[13px] md:line-clamp-3 line-clamp-2 text-[8px] md:text-[15px] mt-1">{datas.makanan.deskripsi}</p>
-                    </div>
-                  </div>
+          {data.map((data, index) => (
+            <div key={index} className="mt-6 min-h-24 h-auto w-full grid grid-cols-12 rounded-md bg-white shadow-xl">
+              <div className="col-span-3 md:col-span-2 md:w-32  ">
+                <img className=" h-full" src={`http://127.0.0.1:8000/${data.makanan.img}`} alt="imeg" />
+              </div>
+              <div className="col-span-9 md:col-span-10 px-3 md:mx-3 mx-1">
+                <div className="flex items-center ">
+                  <h1 className="lg:text-2xl text-[15px] font-bold mt-2">{data.makanan.makanan}</h1>
+                  <button className="ml-auto mt-2" onClick={() => deleteBookmark(data.id)}>
+                    <FontAwesomeIcon icon={faBookmark} className="text-[#2F7377] text-xl " />
+                  </button>
+                </div>
+                <h1 className="lg:text-xs text-[11px] font-bold">{data.makanan.daerah}</h1>
+                <div className="w-full">
+                  <p className="mb-4 lg:mt-2 mt-1 text-[0.6rem] md:text-xs leading-5 col-span-10 md:line-clamp-3 line-clamp-1">{data.makanan.deskripsi}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
 
           {/* Pagination */}
-          <div className="mx-auto mt-8 h-14 w-10/12 md:w-4/6 grid grid-cols-8">
+          <div className="mx-auto mt-8  h-14 w-10/12 md:w-4/6 grid grid-cols-8">
             <div className="col-span-2 p-1 px-4">
               <button className="bg-[#2F7377] h-full w-full rounded-md flex justify-center items-center" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                 <svg className="text-white size-8" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

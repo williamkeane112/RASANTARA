@@ -79,7 +79,7 @@ function List() {
           className={`${
             Hide ? "lg:-translate-x-[542px] duration-1000 lg:inset-x-0 inset-x-20 lg:mt-0 mt-[400px] lg:rotate-0 rotate-90" : "duration-1000 lg:inset-x-0 inset-x-20 lg:mt-0 mt-40 lg:rotate-0 -rotate-90"
           } absolute lg:inset-0 flex justify-center items-center z-50 pointer-events-none`}
-        >
+        >``
           <div className="border bg-[#FCFCFC] border-black border-r-0 lg:rounded-l-2xl lg:py-0 py-1 rounded-l-3xl lg:-ml-[30px] ml-auto pointer-events-auto">
             <button className="lg:px-[12px] p-5 px-4 py-[6px]" onClick={HideOn}>
               <img src={HideMenu} alt="Hide Menu" className={`lg:w-[8px] w-3 ${Hide ? "rotate-0 transition-transform duration-1000 ease-in-out" : "rotate-0"} duration-700 ease-in-out`} />
@@ -97,7 +97,7 @@ function List() {
             <div className="flex items-center justify-center mt-14">
               <img src={imageToShow} alt="Pulau Image" className={`mx-auto ${isSumatera ? "lg:w-[80vh]" : "lg:w-[100vh]"} w-[60vh] ${isJawa ? "mt-36" : "lg:mt-0 -mt-20"} ${isNttOrNtb ? "mt-32" : ""}`} />
             </div>
-            <div className={`ml-5  ${isJawa ? "mt-[90px]" : ""} `}>
+            <div className={`ml-5   ${isJawa ? "mt-[90px]" : ""} `}>
               <MusikList />
             </div>
           </div>

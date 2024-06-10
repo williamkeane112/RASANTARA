@@ -77,14 +77,14 @@ function Home() {
 
         {/* Pulau Nusa Tenggara Barat (NTB) */}
         <div className="ntb absolute md:right-[15.5rem] md:bottom-8 bottom-48 right-36">
-          <Link to="/List?pulau=ntb" className="ntb">
+          <Link to="/List?pulau=NusaTenggaraBarat " className="ntb">
             <img src={ntbImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Timur (NTT) */}
         <div className="ntt absolute md:right-[5rem] md:bottom-20 right-3 bottom-56">
-          <Link to="/List?pulau=ntt" className="ntt">
+          <Link to="/List?pulau=NusaTenggaraTimur" className="ntt">
             <img src={nttImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
