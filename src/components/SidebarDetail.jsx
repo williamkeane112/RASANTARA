@@ -30,14 +30,9 @@ function SidebarDetail() {
             <span className="lg:text-[11px] text-sm">Tersimpan</span>
           </Link>
           <Link to="/history" className="lg:flex flex-col hidden items-center">
-            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl " />
+            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl text-[#2F7377]  " />
             <span className="lg:text-[11px]">Riwayat</span>
           </Link>
-          <button className="lg:flex flex-col hidden items-center">
-            <div className="mt-[250px]">
-              <FontAwesomeIcon icon={faGear} alt="Icon Latters Menu" className="text-4xl text-[#2F7377]" />
-            </div>
-          </button>
         </div>
       </nav>
       <div
@@ -54,14 +49,9 @@ function SidebarDetail() {
             <span className="text-[12px]">Tersimpan</span>
           </Link>
           <Link to="/history" className="flex flex-col items-center">
-            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl " />
+            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl text-[#2F7377]" />
             <span className="text-[12px]">Baru Saja</span>
           </Link>
-          <button className="flex flex-col items-center">
-            <div className="mt-[270px]">
-              <FontAwesomeIcon icon={faGear} alt="Icon Latters Menu" className="text-4xl text-[#2F7377]" />
-            </div>
-          </button>
         </div>
       </div>
     </>
