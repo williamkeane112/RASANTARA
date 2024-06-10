@@ -1,6 +1,6 @@
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faBookOpen, faBookmark, faClipboardList, faShare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRotateBack, faBars, faBookOpen, faBookmark, faClipboardList, faShare, faShareSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 
 // Component

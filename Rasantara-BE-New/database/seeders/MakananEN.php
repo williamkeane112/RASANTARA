@@ -182,6 +182,54 @@ class MakananEN extends Seeder
                 'img' => 'Makanan/SambalRaja.jpg',
                 'deskripsi' => 'Sambal Raja is a traditional East Kalimantan sambal made from chili, shrimp paste, and other spices, served with vegetables.',
             ],
+            [
+                'food' => 'Plecing Kangkung',
+                'region' => 'Lombok, West Nusa Tenggara (NTB)',
+                'img' => 'Food/PlecingKangkungLombok.jpg',
+                'description' => 'Plecing Kangkung from Lombok is water spinach served with spicy tomato sambal.'
+                ],
+                [
+                'food' => 'Sate Bulayak',
+                'region' => 'Sumbawa, West Nusa Tenggara (NTB)',
+                'img' => 'Food/SateBulayakSumbawa.jpg',
+                'description' => 'Sate Bulayak from Sumbawa is skewered meat served with typical Sumbawa peanut sauce.'
+                ],
+                [
+                'food' => 'Kolo',
+                'region' => 'Flores, East Nusa Tenggara (NTT)',
+                'img' => 'Food/KoloFlores.jpg',
+                'description' => 'Kolo is noodle dish with typical Flores peanut sauce served with sliced meat or fish.'
+                ],
+                [
+                'food' => 'Ikan Woku',
+                'region' => 'Maumere, East Nusa Tenggara (NTT)',
+                'img' => 'Food/IkanWokuMaumere.jpg',
+                'description' => 'Ikan Woku Maumere is fish dish with spicy and savory Woku seasoning.'
+                ],
+                [
+                'food' => 'Ayam Betutu',
+                'region' => 'Bali and Lombok, West Nusa Tenggara (NTB)',
+                'img' => 'Food/AyamBetutuLombok.jpg',
+                'description' => 'Ayam Betutu is chicken cooked with typical spices and wrapped in banana leaves for grilling.'
+                ],
+                [
+                'food' => 'Pelecing Sasak',
+                'region' => 'Lombok, West Nusa Tenggara (NTB)',
+                'img' => 'Food/PelecingSasakLombok.jpg',
+                'description' => 'Pelecing Sasak is water spinach dish served with spicy tomato sambal and sliced tomatoes.'
+                ],
+                [
+                'food' => 'Bebek Betutu',
+                'region' => 'Bali and Lombok, West Nusa Tenggara (NTB)',
+                'img' => 'Food/BebekBetutuLombok.jpg',
+                'description' => 'Bebek Betutu is duck cooked with typical spices and wrapped in banana leaves for grilling.'
+                ],
+                [
+                'food' => 'Ikan Belanga',
+                'region' => 'Bajawa, East Nusa Tenggara (NTT)',
+                'img' => 'Food/IkanBelangaBajawa.jpg',
+                'description' => 'Ikan Belanga Bajawa is fish dish cooked with typical seasoning and grilled in a clay pot.'
+                ],
         ]);
     }
 }

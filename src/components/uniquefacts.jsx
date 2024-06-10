@@ -6,6 +6,12 @@ function UniqueFacts() {
   const [uniqueFacts] = useState([
     "Taukah kamu disetiap makanan daerah pasti memiliki latar belakang cerita yang unik",
     "Pecel Lele, hidangan populer di Indonesia yang terbuat dari ikan lele goreng yang sering disebut sebagai 'lele yang bikin ketagihan'.",
+    "Nasi Goreng diakui sebagai Warisan Budaya Tak Benda Indonesia oleh UNESCO pada 2013.",
+    "Indonesia memiliki lebih dari 17.000 pulau, dan merupakan negara kepulauan terbesar di dunia.",
+    "Indonesia memiliki 1340 suku bangsa dan 652 bahasa daerah.",
+    "Konon, nasi goreng diciptakan saat ada sisa-sisa makanan dari hari sebelumnya, jadi seseorang hanya menggorengnya dengan bumbu-bumbu dan terciptalah nasi goreng!",
+    "Sate awalnya diciptakan oleh seseorang yang sangat malas memasak, sehingga dia hanya menusukkan daging pada tusuk sate dan memanggangnya!"
+
   ]);
 
   const [currentFactIndex, setCurrentFactIndex] = useState(0);

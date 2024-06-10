@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faBars, faClock, faGear, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faBars, faClock, faHome } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -28,14 +28,9 @@ function Sidebar() {
             <span className="lg:text-[11px] text-sm">Tersimpan</span>
           </Link>
           <Link to='/history' className="lg:flex flex-col hidden items-center">
-            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl " />
-            <span className="lg:text-[11px] text-sm">Baru Saja</span>
+            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl text-[#2F7377] " />
+            <span className="lg:text-[11px] text-sm">Riwayat</span>
           </Link>
-          <button className="lg:flex flex-col hidden items-center">
-            <div className="mt-[210px]">
-              <FontAwesomeIcon icon={faGear} alt="Icon Latters Menu" className="text-4xl text-[#2F7377]" />
-            </div>
-          </button>
         </div>
       </nav>
       {/* sidebar open */}
@@ -53,14 +48,9 @@ function Sidebar() {
             <span className="text-[12px]">Tersimpan</span>
           </Link>
           <Link to="/history" className="flex flex-col items-center">
-            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl " />
-            <span className="text-[12px]">Baru Saja</span>
+            <FontAwesomeIcon icon={faClock} alt="Icon Latters Menu" className="text-3xl text-[#2F7377]" />
+            <span className="text-[12px]">Riwayat</span>
           </Link>
-          <button className="flex flex-col items-center">
-            <div className="mt-[270px]">
-              <FontAwesomeIcon icon={faGear} alt="Icon Latters Menu" className="text-4xl text-[#2F7377]" />
-            </div>
-          </button>
         </div>
       </div>
     </>
