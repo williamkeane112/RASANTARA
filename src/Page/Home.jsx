@@ -35,56 +35,56 @@ function Home() {
       <div className="IndonesiaMap">
         {/* Pulau Sumatera */}
         <div className="sumatera absolute md:bottom-20 bottom-56 md:left-8">
-          <Link to="/List?pulau=sumatera" className="sumatera">
+          <Link to="/List?pulau=sumatera&&lang=ind" className="sumatera">
             <img src={sumateraImg} alt="" className="md:w-[27rem] w-[16rem]" />
           </Link>
         </div>
 
         {/* Pulau Jawa */}
         <div className="jawa absolute md:bottom-6 bottom-48 md:left-[18rem] left-[10rem]">
-          <Link to="/List?pulau=jawa" className="jawa">
+          <Link to="/List?pulau=jawa&&lang=ind" className="jawa">
             <img src={jawaImg} alt="" className="md:w-[29rem] w-[18rem]" />
           </Link>
         </div>
 
         {/* Pulau Bali */}
         <div className="bali absolute md:bottom-10 md:right-[27rem] right-[17.5rem] bottom-[12rem]">
-          <Link to="/List?pulau=bali" className="bali">
+          <Link to="/List?pulau=bali&&lang=ind" className="bali">
             <img src={baliImg} alt="" className="md:w-[8rem] w-[6rem]" />
           </Link>
         </div>
 
         {/* Pulau Kalimantan */}
         <div className="kalimantan absolute md:left-[20rem] md:top-32 top-36 left-[11rem]">
-          <Link to="/List?pulau=kalimantan" className="kalimantan">
+          <Link to="/List?pulau=kalimantan&&lang=ind" className="kalimantan">
             <img src={KalimantanImg} alt="" className="md:w-[17.5rem] w-[14.5rem]" />
           </Link>
         </div>
 
         {/* Pulau Sulawesi */}
         <div className="sulawesi absolute md:left-[37.5rem] md:top-32 top-44 left-[25rem]">
-          <Link to="/List?pulau=sulawesi" className="sulawesi">
+          <Link to="/List?pulau=sulawesi&&lang=ind" className="sulawesi">
             <img src={sulawesiImg} alt="" className="md:w-[17rem] w-[11rem]" />
           </Link>
         </div>
 
         {/* Pulau Papua */}
         <div className="papua absolute md:right-[4rem] md:top-28 right-4 top-40">
-          <Link to="/List?pulau=papua" className="papua">
+          <Link to="/List?pulau=papua&&lang=ind" className="papua">
             <img src={papuaiImg} alt="" className="md:w-[21rem] w-[14rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Barat (NTB) */}
         <div className="ntb absolute md:right-[15.5rem] md:bottom-8 bottom-48 right-36">
-          <Link to="/List?pulau=NusaTenggaraBarat " className="ntb">
+          <Link to="/List?pulau=NusaTenggaraBarat&&lang=ind" className="ntb">
             <img src={ntbImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
 
         {/* Pulau Nusa Tenggara Timur (NTT) */}
         <div className="ntt absolute md:right-[5rem] md:bottom-20 right-3 bottom-56">
-          <Link to="/List?pulau=NusaTenggaraTimur" className="ntt">
+          <Link to="/List?pulau=NusaTenggaraTimur&&lang=ind" className="ntt">
             <img src={nttImg} alt="" className="md:w-[12rem] w-[9rem]" />
           </Link>
         </div>
