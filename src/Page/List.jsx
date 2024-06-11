@@ -46,9 +46,7 @@ function List() {
           <div className="flex items-center justify-center mt-14">
             <img src={imageToShow} alt="Pulau Image" className={`mx-auto`} />
           </div>
-          <div className={`ml-5`}>
-             {/* <MusikList /> */}
-          </div>
+          <div className={`ml-5`}>{/* <MusikList /> */}</div>
         </div>
       </section>
       {/* pulau hide */}
@@ -94,13 +92,23 @@ function List() {
 
         {/* End Menu ?? */}
         {/* Section 3 */}
-        <section className={`border-l overflow-y-auto  lg:border-black lg:flex lg:col-span-6 col-span-12 hidden  ${Hide ? "lg:-ml-12 lg:translate-x-10 lg:w-[100.7%] w-full transition-transform duration-1000 ease-in-out" : "duration-1000 ease-in-out"}`}>
+        <section
+          className={`border-l overflow-y-auto  lg:border-black lg:flex lg:col-span-6 col-span-12 hidden ${isSmall ? "" : "lg:col-span-11"}  ${
+            Hide ? "lg:-ml-12 lg:col-span-11 col-span-10 lg:translate-x-10 lg:w-[100.7%] w-full transition-transform duration-1000 ease-in-out" : "duration-1000 ease-in-out"
+          }`}
+        >
           <div className="w-full h-[100%] " style={{ backgroundImage: `url(${bgWalpp})` }}>
             <div className="flex items-center justify-center pl-7 pt-3">
               <span className={`${textSize} font-bold text-center ${textColor}`}>{pulauName}</span>
             </div>
             <div className="flex items-center justify-center mt-14">
-              <img src={imageToShow} alt="Pulau Image" className={`mx-auto ${isSumatera ? "lg:w-[80vh]" : "lg:w-[100vh]"} w-[60vh] ${isJawa ? "mt-36" : "lg:mt-0 -mt-20"} ${isNttOrNtb ? "mt-32" : ""} ${isSulawesi ? "lg:w-[90vh]" : ""} ${isKalimantan ? "lg:w-[85vh]" : ""} ${isPapua ? "lg:w-[98vh]" : ""} ${isBali ? "mb-14" : ""} `} />
+              <img
+                src={imageToShow}
+                alt="Pulau Image"
+                className={`mx-auto ${isSumatera ? "lg:w-[80vh]" : "lg:w-[100vh]"} w-[60vh] ${isJawa ? "mt-36" : "lg:mt-0 -mt-20"} ${isNttOrNtb ? "mt-32" : ""} ${isSulawesi ? "lg:w-[90vh]" : ""} ${isKalimantan ? "lg:w-[85vh]" : ""} ${
+                  isPapua ? "lg:w-[98vh]" : ""
+                } ${isBali ? "mb-14" : ""} `}
+              />
             </div>
             <div className={`ml-5    ${isJawa ? "mt-[90px]" : ""} `}>
               <MusikList />

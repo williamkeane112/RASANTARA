@@ -13,7 +13,7 @@ function SidebarDetail() {
       <nav className="bg-white lg:fixed lg:h-screen lg:w-[6%] w-full max-h-[100%] border-r border-black">
         <div className="lg:mt-7 flex flex-col items-center mx-5">
           <div className={`flex lg:w-0 w-full justify-between lg:mx-4 mx-4 my-2 items-center md:hidden h-12 z-[99]`}>
-            <Link to={-1}>
+            <Link to="/">
               <svg className="text-[#2F7377] size-12 -mt-2" stroke="CurrentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.707 17.293L8.414 13 18 13 18 11 8.414 11 12.707 6.707 11.293 5.293 4.586 12 11.293 18.707z"></path>
               </svg>

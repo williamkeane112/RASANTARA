@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faTimes, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-function LoginModal() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+function LoginModal({ isLoginModalOpen, setIsLoginModalOpen }) {
   const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ function LoginModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [logoutSuccess, setLogoutSuccess] = useState(false); 
+  const [logoutSuccess, setLogoutSuccess] = useState(false);
 
   const handleLoginModalToggle = () => {
     if (localStorage.getItem("token")) {
@@ -96,13 +95,10 @@ function LoginModal() {
 
   return (
     <div>
-      <div className="settings">
-        <button onClick={handleLoginModalToggle} className="md:text-3xl text-2xl text-[#3D8E93] md:absolute fixed md:right-20 right-4 top-5 z-10">
-          <FontAwesomeIcon icon={faUser} />
-        </button>
+      <div className="settings z-[999]">
         {isLoginModalOpen && (
-          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
-            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
+          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 ">
+            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative z-[999]">
               <button onClick={handleLoginModalToggle} className="text-xl text-gray-600 absolute top-3 right-3">
                 <FontAwesomeIcon icon={faTimes} />
               </button>
@@ -130,7 +126,7 @@ function LoginModal() {
                   <button type="button" onClick={handleCreateAccountToggle} className="text-sm underline">
                     Belum punya akun?
                   </button>
-                  </div>
+                </div>
               </form>
             </div>
           </div>
@@ -214,7 +210,7 @@ function LoginModal() {
             </div>
           </div>
         )}
-        {logoutSuccess && ( 
+        {logoutSuccess && (
           <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
             <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
               <button onClick={() => setLogoutSuccess(false)} className="text-xl ml-10 text-gray-600 absolute md:top-3 -top-0.5 right-2">

@@ -4,6 +4,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import FormSearch from "../components/FormSearch";
+import LoginModal from "../components/loginuser";
 
 const ListComp = () => {
   const [Data, setData] = useState([]);
@@ -77,24 +78,23 @@ const ListComp = () => {
   // show function
   const queryParams = new URLSearchParams(location.search);
   const pulau = queryParams.get("pulau") || "";
-  const lang =  queryParams.get("lang") || "ind" || "en";
+  const lang = queryParams.get("lang") || "ind" || "en";
   const [isSearch, setIsSearch] = useState("");
 
   const fetchData = async () => {
     try {
       const query = isSearch ? `&query2=${isSearch}` : "";
-      if(lang === "ind"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}`);
-      setData(result.data);
-      } else if (lang === "en"){
-      const result = await axios.get(`http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`);
+      if (lang === "ind") {
+        const result = await axios.get(`http://127.0.0.1:8000/api/makanan?query1=${pulau}${query}`);
+        setData(result.data);
+      } else if (lang === "en") {
+        const result = await axios.get(`http://127.0.0.1:8000/api/makananEN?query1=${pulau}${query}`);
         setData(result.data);
       }
     } catch (err) {
       console.log("ERROR", err);
     }
   };
-  
 
   useEffect(() => {
     fetchData();
@@ -103,9 +103,19 @@ const ListComp = () => {
   const handelSubmitSearch = (searchTerm) => {
     setIsSearch(searchTerm);
   };
-
   // end function
+  // modal login
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
+  const handleLoginModalToggle = () => {
+    if(user_id){
+      console.log('jassgjks')
+
+    }else{
+    setIsLoginModalOpen(!isLoginModalOpen);
+
+    }
+  };
   // history
   const HistoryStore = async (makanan_id) => {
     if (user_id) {
@@ -129,6 +139,10 @@ const ListComp = () => {
       {/* <div className="my-4 lg:mx-1 lg:hidden  mx-3">
         <FormSearch />
       </div> */}
+      <LoginModal
+        isLoginModalOpen={isLoginModalOpen}
+        setIsLoginModalOpen={setIsLoginModalOpen}
+      />
       <div className="my-4 lg:mx-1 lg:ml-1 mx-3 lg:block ">
         <FormSearch onSubmit={handelSubmitSearch} />
       </div>
@@ -143,7 +157,6 @@ const ListComp = () => {
         >
           <div className="mb-4 lg:mx-1 lg:ml-2 mx-4">
             <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid grid-cols-2 gap-2">
-              
               <div className="lg:w-28 w-[100px] md:w-[115px] flex justify-center">
                 <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg lg:w-full h-[100px] object-cover" />
               </div>
@@ -170,15 +183,16 @@ const ListComp = () => {
                   ) : (
                     <button
                       type="button"
-                      className="z-[999] cursor-default"
+                      className="z-[1] cursor-default"
                       onClick={(e) => {
                         e.stopPropagation();
                         e.preventDefault();
+                        handleLoginModalToggle();
                         setMakananId(item.id);
                         Bookmark(item.id);
                       }}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="lg:w-4 w-[17px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="lg:w-4 w-[17px] -z[99]">
                         <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
                       </svg>
                     </button>

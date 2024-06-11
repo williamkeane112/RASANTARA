@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRotateBack, faBars, faBookOpen, faBookmark, faClipboardList, faShare, faShareSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
-
+import Video from "../assets/video/0525.mp4";
 // Component
 import Sidebar from "../components/SidebarDetail";
 import { useState, useEffect } from "react";
@@ -106,17 +106,18 @@ function Detail() {
         <div className="mt-10 lg:mx-10 mx-10">
           {/* vidio */}
           <div className="w-full bg-gray-100 shadow-[4px_5px_9px_0.9px_rgba(0,0,0,0.4)] rounded-xl lg:h-80 h-[30vh]">
-            <iframe
+            <video
               className="p-2 lg:h-full h-[29vh] w-full rounded-2xl"
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/`}
-              title="YouTube video player"
+              src={Video}
+              title="video player"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+              allowFullScreen
+              controls
+            ></video>
             {/* End vidio */}
           </div>
           {/* makanan titel */}

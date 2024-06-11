@@ -13,23 +13,28 @@ import UniqueFacts from "../components/uniquefacts";
 import MusikHome from "../components/musikHome";
 import SettingsModal from "../components/settingsModal";
 import LoginModal from "../components/loginuser";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 function Home() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const handleLoginModalToggle = () => {
+    setIsLoginModalOpen(!isLoginModalOpen);
+  };
   return (
     <div className="body h-[100vh] md:w-auto w-[115vh] pt-3 relative" style={{ backgroundImage: `url(${bgWalpp})` }}>
       <SettingsModal />
-      <LoginModal />
-      
+      <button onClick={handleLoginModalToggle} className="md:text-3xl text-2xl text-[#3D8E93] md:absolute fixed md:right-20 right-4 top-5 z-10">
+        <FontAwesomeIcon icon={faUser} />
+      </button>
+      <LoginModal isLoginModalOpen={isLoginModalOpen} setIsLoginModalOpen={setIsLoginModalOpen} />
+
       <div className="title flex justify-center flex-col items-center ml-10 fixed md:static">
-        <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md text-black tracking-wider ">
-          Rasa Nusantara
-        </h1>
-        <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md absolute opacity-20 md:-mt-3 -mt-2 tracking-wider text-black ">
-          Rasa Nusantara
-        </h1>
-        <p className="font-medium md:text-base text-[10px]">
-          Pilih pulau dan temukan resep makanan kesukaanmu !
-        </p>
+        <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md text-black tracking-wider ">Rasa Nusantara</h1>
+        <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md absolute opacity-20 md:-mt-3 -mt-2 tracking-wider text-black ">Rasa Nusantara</h1>
+        <p className="font-medium md:text-base text-[10px]">Pilih pulau dan temukan resep makanan kesukaanmu !</p>
       </div>
 
       <div className="IndonesiaMap">
@@ -91,7 +96,7 @@ function Home() {
       </div>
 
       <MusikHome />
-      
+
       <UniqueFacts />
     </div>
   );
