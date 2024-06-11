@@ -17,6 +17,8 @@ import LoginModal from "../components/loginuser";
 function Home() {
   return (
     <div className="body h-[100vh] md:w-auto w-[115vh] pt-3 relative" style={{ backgroundImage: `url(${bgWalpp})` }}>
+
+      
       <SettingsModal />
       <LoginModal />
       

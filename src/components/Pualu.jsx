@@ -1,8 +1,8 @@
 // PulauInfo.js
 import sumatera2Img from "../assets/img/SumateraImg2.png";
 import JawaImg2 from "../assets/img/JawaImg2.png";
-import ntbImg from "../assets/img/ntbImg.png";
-import nttImg from "../assets/img/nttImg.png";
+import ntbImg from "../assets/img/ntbImg2.png";
+import nttImg from "../assets/img/nttImg2.png";
 import KalimantanImg2 from "../assets/img/KalimantanImg2.png";
 import PapuaImg2 from "../assets/img/PapuaImg2.png";
 import SulawesiImg2 from "../assets/img/SulawesiImg2.png";
@@ -26,14 +26,14 @@ const Pulau = ({ pulau }) => {
       textSize = "text-4xl";
       style = "lg:w-[100vh]";
       break;
-    case "ntt":
+    case "NusaTenggaraTimur":
       imageToShow = nttImg;
       pulauName = "NUSA TENGGARA TIMUR";
       textColor = "text-[#093F59]";
       textSize = "text-2xl";
       style = "lg:w-[100vh]";
       break;
-    case "ntb":
+    case "NusaTenggaraBarat":
       imageToShow = ntbImg;
       pulauName = "NUSA TENGGARA BARAT";
       textColor = "text-[#093F59]";

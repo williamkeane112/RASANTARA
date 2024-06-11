@@ -34,6 +34,8 @@ function List() {
   const isKalimantan = pulau === "kalimantan";
   const isPapua = pulau === "papua";
   const isBali = pulau === "bali";
+  const isNtt = pulau === "NusaTenggaraTimur";
+  const isNtb = pulau === "NusaTenggaraBarat";
 
   return (
     <>
@@ -107,7 +109,7 @@ function List() {
                 alt="Pulau Image"
                 className={`mx-auto ${isSumatera ? "lg:w-[80vh]" : "lg:w-[100vh]"} w-[60vh] ${isJawa ? "mt-36" : "lg:mt-0 -mt-20"} ${isNttOrNtb ? "mt-32" : ""} ${isSulawesi ? "lg:w-[90vh]" : ""} ${isKalimantan ? "lg:w-[85vh]" : ""} ${
                   isPapua ? "lg:w-[98vh]" : ""
-                } ${isBali ? "mb-14" : ""} `}
+                } ${isBali ? "mb-14" : ""} ${isNtb ? "lg:mt-20  lg:mb-44" : ""} ${isNtt ? "lg:mt-20  lg:mb-16" : ""} `}
               />
             </div>
             <div className={`ml-5    ${isJawa ? "mt-[90px]" : ""} `}>
