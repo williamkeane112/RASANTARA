@@ -143,10 +143,12 @@ const ListComp = () => {
         >
           <div className="mb-4 lg:mx-1 lg:ml-2 mx-4">
             <div className="w-full mb-6 shadow-[0_5px_4px_0.9px_rgba(0,0,0,0.2)] rounded-lg grid grid-cols-2 gap-2">
+              
               <div className="lg:w-28 w-[100px] md:w-[115px] flex justify-center">
-                <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg lg:w-full" />
+                <img src={"http://127.0.0.1:8000/" + item.img} alt="" className="rounded-lg lg:w-full h-[100px] object-cover" />
               </div>
-              <div className="lg:-ml-[133px] -ml-14 md:-ml-60 mt-[10px] lg:mx-6 mx-2 px-2 pb-5">
+
+              <div className="lg:-ml-[133px] -ml-14 md:-ml-60 mt-[10px] lg:mx-6 mx-2 px-2">
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-bold lg:text-xl text-sm leading-[14px]">{item.makanan}</h3>
