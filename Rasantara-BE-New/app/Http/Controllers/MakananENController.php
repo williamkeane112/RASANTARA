@@ -52,7 +52,7 @@ class MakananENController extends Controller
      */
     public function show($id)
     {
-        $data = MakananEN::with('detail')->find($id);
+        $data = makananEN::with('detailen')->find($id);
         if (!$data) {
             return response()->json(['message' => 'Data not found'], 404);
         }

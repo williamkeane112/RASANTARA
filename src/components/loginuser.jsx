@@ -5,26 +5,19 @@ import axios from "axios";
 
 function LoginModal({ isLoginModalOpen, setIsLoginModalOpen }) {
   const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [logoutSuccess, setLogoutSuccess] = useState(false);
 
   const handleLoginModalToggle = () => {
-    if (localStorage.getItem("token")) {
-      setIsLogin(true);
-    } else {
-      setIsLoginModalOpen(!isLoginModalOpen);
-    }
+    setIsLoginModalOpen(!isLoginModalOpen);
   };
 
   const handleCreateAccountToggle = () => {
     setIsLoginModalOpen(false);
-    setIsLogin(false);
     setIsCreateAccountOpen(true);
   };
 
@@ -70,29 +63,6 @@ function LoginModal({ isLoginModalOpen, setIsLoginModalOpen }) {
       setError("Username atau password salah. Silakan coba lagi.");
     }
   };
-
-  const handelLogout = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:8000/api/logout",
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      localStorage.removeItem("token");
-      console.log(response.data);
-      setLogoutSuccess(true);
-      setIsLogin(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div>
       <div className="settings z-[999]">
@@ -186,20 +156,7 @@ function LoginModal({ isLoginModalOpen, setIsLoginModalOpen }) {
             </div>
           </div>
         )}
-        {isLogin && (
-          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
-            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
-              <button onClick={close} className="text-xl ml-10 text-gray-600 absolute top-3 right-3">
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-              <div className="flex justify-center">
-                <button onClick={handelLogout} className="py-2 px-5 bg-red-500 text-white text-center rounded-lg hover:bg-red-700">
-                  LOGOUT
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+
         {loginSuccess && (
           <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
             <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
@@ -207,16 +164,6 @@ function LoginModal({ isLoginModalOpen, setIsLoginModalOpen }) {
                 <FontAwesomeIcon icon={faTimes} />
               </button>
               <p className="text-lg text-center text-green-500">Login berhasil!</p>
-            </div>
-          </div>
-        )}
-        {logoutSuccess && (
-          <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
-            <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
-              <button onClick={() => setLogoutSuccess(false)} className="text-xl ml-10 text-gray-600 absolute md:top-3 -top-0.5 right-2">
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-              <p className="text-lg text-center text-red-500">Logout Berhasil</p>
             </div>
           </div>
         )}

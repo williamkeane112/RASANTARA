@@ -12,18 +12,33 @@ function Detail() {
   // show data
   const { id } = useParams();
   const [data, setData] = useState({});
-  const [detail, setDetails] = useState([]);
-
+  const [detail, setDetails] = useState({});
+  const queryParams = new URLSearchParams(location.search);
+  const lang = queryParams.get("lang") || "ind";
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const result = await axios.get(`http://127.0.0.1:8000/api/makanan/${id}`);
-        setData(result.data);
-        setDetails({
-          ...result.data.detail,
-          bahanBahan: JSON.parse(result.data.detail.bahanBahan),
-          langkahLangkah: JSON.parse(result.data.detail.langkahLangkah),
-        });
+        let result;
+        if (lang === "ind") {
+          result = await axios.get(`http://127.0.0.1:8000/api/makanan/${id}`);
+          setData(result.data);
+          setDetails({
+            ...result.data.detail,
+            latarBelakang: result.data.detail.latarBelakang,
+            bahanBahan: JSON.parse(result.data.detail.bahanBahan),
+            langkahLangkah: JSON.parse(result.data.detail.langkahLangkah),
+          });
+          console.log(result.data.detail.latarBelakang);
+        } else if (lang === "en") {
+          result = await axios.get(`http://127.0.0.1:8000/api/makananEN/${id}`);
+          setData(result.data);
+          setDetails({
+            ...result.data.detail,
+            latarBelakang: result.data.detailen.latarBelakang,
+            bahanBahan: JSON.parse(result.data.detailen.bahanBahan),
+            langkahLangkah: JSON.parse(result.data.detailen.langkahLangkah),
+          });
+        }
       } catch (error) {
         console.log(error);
       }
@@ -31,7 +46,6 @@ function Detail() {
 
     fetchUser();
   }, [id]);
-
   // get id user
   const [user_id, setUserId] = useState();
   useEffect(() => {

@@ -93,10 +93,16 @@ class HistoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(History $history)
+    public function destroy($id)
     {
-        DB::table('histories')->truncate();
-
-        return response()->json(['message' => 'All history records deleted successfully.'], 200);
+        // Delete all records with the given id
+        $deletedRows = DB::table('histories')->where('user_id', $id)->delete();
+    
+        if ($deletedRows === 0) {
+            return response()->json(['message' => 'No history records found with the given ID.'], 404);
+        }
+    
+        return response()->json(['message' => 'All history records with the given ID deleted successfully.'], 200);
     }
+    
 }

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class MakananEN extends Model
 {
     use HasFactory;
-    protected $table = 'makanansEN';
+    protected $table = 'makanansen';
     protected $guarded = ['id'];
     
     public function users()
@@ -17,9 +17,9 @@ class MakananEN extends Model
         return $this->belongsToMany(User::class);
     }
     
-    public function detail()
+    public function detailen()
     {
-        return $this->hasOne(DetailEN::class); 
+        return $this->hasOne(DetailEN::class, 'makanan_id', 'id'); 
     }
     
     public function bookmarks()

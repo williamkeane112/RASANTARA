@@ -67,6 +67,11 @@ class BookmarkController extends Controller
         $bookmarks = Bookmark::with('makanan')->where('user_id', $user_id)->get();
         return response()->json($bookmarks);
     }
+    public function getBookmarksEN($user_id)
+    {
+        $bookmarks = Bookmark::with('makananEN')->where('user_id', $user_id)->get();
+        return response()->json($bookmarks);
+    }
     
     
     

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetailEN extends Model
 {
     use HasFactory;
+    protected $table = 'detailsen';
     protected $guarded = ['id'];
     public function makanan()
     {

@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('makanan', MakananController::class);
 Route::get('/makananEN', [MakananENController::class, 'index']);
+Route::get('/makananEN/{id}', [MakananENController::class, 'show']);
 
 
 Route::post('/register', [AuthController::class ,'register'])->middleware('guest');
@@ -41,4 +42,4 @@ Route::get('/getbookmarks/{user_id}', [BookmarkController::class, 'getBookmarks'
 // history
 Route::resource('history', HistoryController::class);
 
-Route::delete('/history', [HistoryController::class, 'destroy']);
+Route::delete('/history/{id}', [HistoryController::class, 'destroy']);

@@ -18,4 +18,8 @@ class Bookmark extends Model
     {
         return $this->belongsTo(Makanan::class);
     }
+    public function makananEN()
+    {
+        return $this->belongsTo(Makanan::class);
+    }
 }

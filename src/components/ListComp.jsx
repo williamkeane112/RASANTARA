@@ -125,18 +125,26 @@ const ListComp = () => {
           makanan_id,
         });
         console.log(response.data);
-        redirect("/detail/" + makanan_id);
+        if(lang === "ind"){
+          redirect(`/detail/${makanan_id}?lang=ind`);
+        }else{
+        redirect(`/detail/${makanan_id}?lang=en`);
+        }
       } catch (error) {
         console.log(error);
       }
     } else {
-      redirect(`/detail/${makanan_id}`);
+      if(lang === "ind"){
+        redirect(`/detail/${makanan_id}?lang=ind`);
+      }else{
+      redirect(`/detail/${makanan_id}?lang=en`);
+      }
     }
   };
 
   return (
     <>
-      {/* <div className="my-4 lg:mx-1 lg:hidden  mx-3">
+      {/* <div clakssName="my-4 lg:mx-1 lg:hidden  mx-3">
         <FormSearch />
       </div> */}
       <LoginModal

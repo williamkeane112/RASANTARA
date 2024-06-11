@@ -13,15 +13,43 @@ import UniqueFacts from "../components/uniquefacts";
 import MusikHome from "../components/musikHome";
 import SettingsModal from "../components/settingsModal";
 import LoginModal from "../components/loginuser";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import axios from "axios";
 
 function Home() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
+  const [isLogin, setIsLogin] = useState(false);
+  const [logoutSuccess, setLogoutSuccess] = useState(false);
   const handleLoginModalToggle = () => {
-    setIsLoginModalOpen(!isLoginModalOpen);
+    if (localStorage.getItem("token")) {
+      setIsLogin(true);
+    } else {
+      setIsLoginModalOpen(!isLoginModalOpen);
+    }
+  };
+  // handel logout
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:8000/api/logout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      localStorage.removeItem("token");
+      console.log(response.data);
+      setLogoutSuccess(true);
+      setIsLogin(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="body h-[100vh] md:w-auto w-[115vh] pt-3 relative" style={{ backgroundImage: `url(${bgWalpp})` }}>
@@ -30,6 +58,31 @@ function Home() {
         <FontAwesomeIcon icon={faUser} />
       </button>
       <LoginModal isLoginModalOpen={isLoginModalOpen} setIsLoginModalOpen={setIsLoginModalOpen} />
+
+      {isLogin && (
+        <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
+          <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
+            <button onClick={close} className="text-xl ml-10 text-gray-600 absolute top-3 right-3">
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+            <div className="flex justify-center">
+              <button onClick={handleLogout} className="py-2 px-5 bg-red-500 text-white text-center rounded-lg hover:bg-red-700">
+                LOGOUT
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {logoutSuccess && (
+        <div className="modal md:absolute fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50 z-20">
+          <div className="modal-content bg-[#F8F6F2] md:w-[30rem] md:h-auto p-5 rounded-lg relative">
+            <button onClick={() => setLogoutSuccess(false)} className="text-xl ml-10 text-gray-600 absolute md:top-3 -top-0.5 right-2">
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+            <p className="text-lg text-center text-red-500">Logout Berhasil</p>
+          </div>
+        </div>
+      )}
 
       <div className="title flex justify-center flex-col items-center ml-10 fixed md:static">
         <h1 className="font-bold md:text-6xl text-2xl drop-shadow-md text-black tracking-wider ">Rasa Nusantara</h1>

@@ -68,7 +68,7 @@ function History() {
   //   hapus semua data
   const delateHistory = async () => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/history`);
+      const response = await axios.delete(`http://localhost:8000/api/history/${user_id}`);
       console.log(response.data);
     } catch (error) {
       console.log(error);

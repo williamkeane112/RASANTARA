@@ -517,6 +517,1392 @@ class DetailEN extends Seeder
                     'Add salt and sugar, cook until the spices are absorbed.',
                     'Serve the soup with shredded chicken, bean sprouts, celery, and fried shallots.'
                 ]),
+            ],[
+                'makanan_id' => '22',
+                'tutorial' => 'https://youtu.be/example22',
+                'latarBelakang' => 'Soto Banjar is a traditional Banjar chicken soup served with rice cake and boiled eggs.',
+                'bahanBahan' => json_encode([
+                    '500 grams chicken meat',
+                    '2 liters water',
+                    '10 shallots',
+                    '5 garlic cloves',
+                    '2 lemongrass stalks, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste',
+                    'rice cake, boiled eggs, and fried shallots for garnish'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the chicken meat until cooked, remove and shred the meat.',
+                    'Blend the spices: shallots, garlic, lemongrass, and bay leaves.',
+                    'Saute the blended spices until fragrant, then add to the chicken broth.',
+                    'Add salt and sugar, cook until the spices are well absorbed.',
+                    'Serve the soto with shredded chicken, rice cake, boiled eggs, and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '23',
+                'tutorial' => 'https://youtu.be/example23',
+                'latarBelakang' => 'Ketupat Kandangan is rice cake served with haruan (snakehead fish) and coconut milk broth.',
+                'bahanBahan' => json_encode([
+                    '5 rice cakes',
+                    '1 kg haruan fish (snakehead)',
+                    '1 liter coconut milk',
+                    '10 shallots',
+                    '5 garlic cloves',
+                    '5 red chilies',
+                    '2 lemongrass stalks, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean and cut the haruan fish as desired.',
+                    'Blend the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the blended spices until fragrant, then add the haruan fish.',
+                    'Add coconut milk, salt, and sugar, cook until the fish is cooked and the broth is well absorbed.',
+                    'Serve the rice cake with haruan fish and coconut milk broth.'
+                ]),
+            ],
+            [
+                'makanan_id' => '24',
+                'tutorial' => 'https://youtu.be/example24',
+                'latarBelakang' => 'Ayam Cincane is grilled chicken cooked with red spices from Samarinda.',
+                'bahanBahan' => json_encode([
+                    '1 whole chicken, cut into 4 pieces',
+                    '10 shallots',
+                    '5 garlic cloves',
+                    '10 red chilies',
+                    '2 lemongrass stalks, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Blend the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the blended spices until fragrant, then add the chicken and stir well.',
+                    'Add salt and sugar, cook until the chicken is cooked and the spices are well absorbed.',
+                    'Grill the chicken until browned and perfectly cooked.',
+                    'Serve Ayam Cincane with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '25',
+                'tutorial' => 'https://youtu.be/example25',
+                'latarBelakang' => 'Nasi Kuning Banjar is yellow rice served with various side dishes such as chicken, eggs, and shredded coconut.',
+                'bahanBahan' => json_encode([
+                    '500 grams rice',
+                    '1 liter coconut milk',
+                    '2 lemongrass stalks, bruised',
+                    '3 bay leaves',
+                    '1 teaspoon turmeric powder',
+                    'salt to taste',
+                    'chicken, boiled eggs, and shredded coconut for garnish'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the rice until clean, put it in a pot.',
+                    'Add coconut milk, lemongrass, bay leaves, turmeric powder, and salt.',
+                    'Cook the rice until cooked and yellow in color.',
+                    'Serve yellow rice with chicken, boiled eggs, and shredded coconut.'
+                ]),
+            ],
+            [
+                'makanan_id' => '26',
+                'tutorial' => 'https://youtu.be/example26',
+                'latarBelakang' => 'Pengkang is a dish made from glutinous rice filled with dried shrimp, wrapped in banana leaves, and grilled.',
+                'bahanBahan' => json_encode([
+                    '500 grams glutinous rice',
+                    '200 grams dried shrimp, soaked and ground',
+                    '5 shallots',
+                    '3 garlic cloves',
+                    'banana leaves for wrapping',
+                    'salt to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the glutinous rice until clean, steam until half-cooked.',
+                    'Blend the spices: shallots, garlic.',
+                    'Saute the blended spices until fragrant, then add the dried shrimp and stir well.',
+                    'Take a piece of banana leaf, fill it with glutinous rice and dried shrimp, wrap it tightly.',
+                    'Grill the Pengkang until the banana leaves are browned and cooked.'
+                ]),
+            ],
+            [
+                'makanan_id' => '27',
+                'tutorial' => 'https://youtu.be/example27',
+                'latarBelakang' => 'Juhu Singkah is a traditional Dayak dish made from young rattan cooked with fish and spices.',
+                'bahanBahan' => json_encode([
+                    '500 grams young rattan, cut into pieces',
+                    '300 grams fish, cut as desired',
+                    '10 shallots',
+                    '5 garlic cloves',
+                    '5 red chilies',
+                    '2 lemongrass stalks, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the young rattan until clean.',
+                    'Blend the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the blended spices until fragrant, then add the fish and young rattan.',
+                    'Add salt and sugar, cook until the fish and rattan are cooked and the spices are well absorbed.',
+                    'Serve Juhu Singkah with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '28',
+                'tutorial' => 'https://youtu.be/example28',
+                'latarBelakang' => 'Sambal Raja is a traditional Kutai sambal consisting of various vegetables topped with a special sambal.',
+                'bahanBahan' => json_encode([
+                    '200 grams long beans, cut into pieces',
+                    '200 grams eggplant, cut into pieces',
+                    '200 grams water spinach, plucked',
+                    '5 red chilies',
+                    '10 shallots',
+                    '5 garlic cloves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the long beans, eggplant, and water spinach until cooked.',
+                    'Blend the spices: red chilies, shallots, and garlic.',
+                    'Saute the blended spices until fragrant, add salt and sugar.',
+                    'Arrange the vegetables on a serving plate, pour the cooked sambal over them.',
+                    'Serve Sambal Raja with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '29',
+                'tutorial' => 'https://youtu.be/example29',
+                'latarBelakang' => 'Pais Patin is a dish where catfish is wrapped in banana leaves and cooked with yellow spices.',
+                'bahanBahan' => json_encode([
+                    '1 kg of catfish, cut as desired',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    '1 teaspoon of turmeric powder',
+                    'salt and sugar to taste',
+                    'banana leaves for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the catfish and cut as desired.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, bay leaves, and turmeric powder.',
+                    'Saute the ground spices until fragrant, add salt and sugar.',
+                    'Take a banana leaf, fill with catfish and spices, wrap tightly.',
+                    'Steam the pais patin until cooked and the spices are absorbed.',
+                    'Serve pais patin with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '30',
+                'tutorial' => 'https://youtu.be/example30',
+                'latarBelakang' => 'Bubur Pedas is a traditional porridge from Pontianak made from a mixture of rice, vegetables, and spice paste.',
+                'bahanBahan' => json_encode([
+                    '200 grams of rice, roasted and ground',
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '100 grams of melinjo leaves, cleaned',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the fine rice with water until it turns into porridge.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add to the porridge.',
+                    'Add salt and sugar, cook until the porridge is cooked and the spices are absorbed.',
+                    'Add the vegetables, cook briefly until wilted.',
+                    'Serve the spicy porridge topped with fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '31',
+                'tutorial' => 'https://youtu.be/example31',
+                'latarBelakang' => 'Ikan Asam Pedas is a fish dish cooked with spicy and sour spices typical of Sambas.',
+                'bahanBahan' => json_encode([
+                    '1 kg fish, cut as desired',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    '1 teaspoon of tamarind paste',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the fish and cut as desired.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, bay leaves, and tamarind.',
+                    'Saute the ground spices until fragrant, add salt and sugar.',
+                    'Add fish, stir well, cook until cooked and the spices are absorbed.',
+                    'Serve the spicy sour fish with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '32',
+                'tutorial' => 'https://youtu.be/example32',
+                'latarBelakang' => 'Coto Makassar is a beef soup from Makassar cooked with spices and peanuts.',
+                'bahanBahan' => json_encode([
+                    '1 kg beef, cut into cubes',
+                    '2 liters of water',
+                    '200 grams of peanuts, roasted and ground',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the beef until tender, remove and set aside.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add to the beef broth.',
+                    'Add ground peanuts, salt, and sugar, cook until the spices are absorbed.',
+                    'Serve coto with beef pieces, ketupat, and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '33',
+                'tutorial' => 'https://youtu.be/example33',
+                'latarBelakang' => 'Pallubasa is a meat soup with a thick broth made from roasted grated coconut.',
+                'bahanBahan' => json_encode([
+                    '1 kg beef, cut into cubes',
+                    '2 liters of water',
+                    '200 grams of grated coconut, roasted and ground',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the beef until tender, remove and set aside.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add to the beef broth.',
+                    'Add ground coconut, salt, and sugar, cook until the spices are absorbed.',
+                    'Serve pallubasa with beef pieces and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '34',
+                'tutorial' => 'https://youtu.be/example34',
+                'latarBelakang' => 'Sup Konro is a rib soup from Makassar cooked with specific spices.',
+                'bahanBahan' => json_encode([
+                    '1 kg beef ribs, cut as desired',
+                    '2 liters of water',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the ribs until tender, remove and set aside.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add to the rib broth.',
+                    'Add salt and sugar, cook until the spices are absorbed.',
+                    'Serve the konro soup with rib pieces and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '35',
+                'tutorial' => 'https://youtu.be/example35',
+                'latarBelakang' => 'Tinutuan or Manado Porridge is a porridge made from various vegetables and typical Manado spices.',
+                'bahanBahan' => json_encode([
+                    '200 grams of rice',
+                    '1 liter of water',
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '100 grams of pumpkin, diced',
+                    '100 grams of sweet corn, shredded',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the rice with water until it becomes porridge.',
+                    'Add pumpkin and sweet corn, cook until tender.',
+                    'Grind the spices: shallots and garlic.',
+                    'Saute the ground spices until fragrant, add to the porridge.',
+                    'Add vegetables, salt, and sugar, cook until vegetables are cooked and the porridge absorbs the flavors.',
+                    'Serve tinutuan topped with fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '36',
+                'tutorial' => 'https://youtu.be/example36',
+                'latarBelakang' => 'Paniki is a traditional Manado dish made from bat meat cooked with coconut milk and spices.',
+                'bahanBahan' => json_encode([
+                    '1 kg bat meat, cut as desired',
+                    '1 liter of coconut milk',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the bat meat and cut as desired.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add the bat meat and stir well.',
+                    'Add coconut milk, salt, and sugar, cook until the meat is cooked and the spices are absorbed.',
+                    'Serve paniki with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '37',
+                'tutorial' => 'https://youtu.be/example37',
+                'latarBelakang' => 'Brenebon is a red bean soup cooked with pork or beef and typical Manado spices.',
+                'bahanBahan' => json_encode([
+                    '500 grams of red beans, soaked overnight',
+                    '500 grams of pork or beef, cut into cubes',
+                    '2 liters of water',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the red beans until tender, remove and set aside.',
+                    'Boil the meat until tender, remove and set aside.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add to the meat broth.',
+                    'Add red beans, salt, and sugar, cook until the spices are absorbed.',
+                    'Serve brenebon with meat pieces and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '38',
+                'tutorial' => 'https://youtu.be/example38',
+                'latarBelakang' => 'Ikan Woku Belanga is a fish dish with Woku spices from Manado cooked in a belanga (clay pot).',
+                'bahanBahan' => json_encode([
+                    '1 kg fish, cut as desired',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    '2 kaffir lime leaves',
+                    'salt and sugar to taste',
+                    '200 ml water'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the fish and cut as desired.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, bay leaves, and kaffir lime leaves.',
+                    'Saute the ground spices until fragrant, add the fish and water.',
+                    'Add salt and sugar, cook until the fish is cooked and the spices are absorbed.',
+                    'Serve ikan woku belanga with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '39',
+                'tutorial' => 'https://youtu.be/example39',
+                'latarBelakang' => 'Kapurung is a traditional Luwu dish made from sago cooked with fish or chicken and vegetables.',
+                'bahanBahan' => json_encode([
+                    '200 grams of sago',
+                    '500 grams of fish or chicken, cut as desired',
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Dissolve sago in water, cook until thick.',
+                    'Clean the fish or chicken and cut as desired.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add fish or chicken and stir well.',
+                    'Add vegetables, salt, and sugar, cook until vegetables wilt.',
+                    'Serve kapurung with fish or chicken and vegetables.'
+                ]),
+            ],
+            [
+                'makanan_id' => '40',
+                'tutorial' => 'https://youtu.be/example40',
+                'latarBelakang' => 'Kaledo is a Palu-style beef foot bone soup served with spicy sour broth.',
+                'bahanBahan' => json_encode([
+                    '1 kg beef foot bones, cut as desired',
+                    '2 liters of water',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    '1 teaspoon of tamarind paste',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the beef foot bones until tender, remove and set aside.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, bay leaves, and tamarind.',
+                    'Saute the ground spices until fragrant, add to the bone broth.',
+                    'Add salt and sugar, cook until the spices are absorbed.',
+                    'Serve kaledo with beef foot bones and fried shallots.'
+                ]),
+            ],
+            [
+                'makanan_id' => '41',
+                'tutorial' => 'https://youtu.be/example41',
+                'latarBelakang' => 'Lalampa is a traditional Gorontalo snack similar to lemper, wrapped in banana leaves and grilled.',
+                'bahanBahan' => json_encode([
+                    '500 grams of glutinous rice',
+                    '200 grams of dried shrimp, soaked and ground',
+                    '5 cloves of shallots',
+                    '3 cloves of garlic',
+                    'banana leaves for wrapping',
+                    'salt to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the glutinous rice until clean, steam until half-cooked.',
+                    'Grind the spices: shallots and garlic.',
+                    'Saute the ground spices until fragrant, add dried shrimp and stir well.',
+                    'Take a piece of banana leaf, fill with glutinous rice and shrimp, wrap tightly.',
+                    'Grill the lalampa until the banana leaves are browned and cooked.'
+                ]),
+            ],
+            [
+                'makanan_id' => '42',
+                'tutorial' => 'https://youtu.be/example42',
+                'latarBelakang' => 'Babi Guling is a Balinese roast pork dish seasoned with Balinese spices.',
+                'bahanBahan' => json_encode([
+                    '1 whole pig for roasting',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '10 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, insert into the pigs belly.',
+                    'Sew the belly tightly, roast until cooked and the skin is crispy.',
+                    'Serve babi guling with rice and sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '43',
+                'tutorial' => 'https://youtu.be/example43',
+                'latarBelakang' => 'Ayam Betutu is a Balinese chicken dish cooked with Balinese spices and wrapped in banana leaves, then grilled.',
+                'bahanBahan' => json_encode([
+                    '1 chicken, cut into 4 parts',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '10 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste',
+                    'banana leaves for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add chicken and stir well.',
+                    'Take a banana leaf, wrap the chicken with spices, tie tightly.',
+                    'Grill the chicken until cooked and the spices are absorbed.',
+                    'Serve ayam betutu with rice and sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '44',
+                'tutorial' => 'https://youtu.be/example44',
+                'latarBelakang' => 'Lawar is a mixture of vegetables, minced meat, and grated coconut seasoned with Balinese spices.',
+                'bahanBahan' => json_encode([
+                    '200 grams of minced meat',
+                    '200 grams of grated coconut',
+                    '200 grams of long beans, cut into pieces',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add minced meat and stir well.',
+                    'Add grated coconut and long beans, stir until well mixed.',
+                    'Add salt and sugar, cook until cooked and the spices are absorbed.',
+                    'Serve lawar with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '45',
+                'tutorial' => 'https://youtu.be/example45',
+                'latarBelakang' => 'Sate Lilit is a traditional Balinese satay made from minced meat wrapped around lemongrass or bamboo sticks.',
+                'bahanBahan' => json_encode([
+                    '500 grams of minced meat',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste',
+                    'lemongrass or bamboo sticks for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add minced meat and stir well.',
+                    'Add salt and sugar, cook until cooked and the spices are absorbed.',
+                    'Take a small amount of meat mixture, wrap around lemongrass or bamboo sticks.',
+                    'Grill sate lilit until cooked and browned.',
+                    'Serve sate lilit with sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '46',
+                'tutorial' => 'https://youtu.be/example46',
+                'latarBelakang' => 'Nasi Campur Bali is white rice served with various Balinese side dishes such as shredded chicken, sate lilit, and lawar.',
+                'bahanBahan' => json_encode([
+                    '500 grams of rice',
+                    '1 liter of water',
+                    '200 grams of shredded chicken',
+                    '200 grams of lawar',
+                    '200 grams of sate lilit',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the rice until clean, cook until cooked.',
+                    'Shred the chicken meat and cook with ground spices.',
+                    'Saute the ground spices until fragrant, add lawar and sate lilit, stir well.',
+                    'Add salt and sugar, cook until cooked and the spices are absorbed.',
+                    'Serve mixed rice with shredded chicken, lawar, and sate lilit.'
+                ]),
+            ],
+            [
+                'makanan_id' => '47',
+                'tutorial' => 'https://youtu.be/example47',
+                'latarBelakang' => 'Serombotan is a dish of boiled vegetables served with a typical Balinese peanut sauce.',
+                'bahanBahan' => json_encode([
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '200 grams of long beans, cut into pieces',
+                    '100 grams of bean sprouts',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '200 grams of roasted and ground peanuts',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil spinach, water spinach, long beans, and bean sprouts until cooked.',
+                    'Grind the spices: shallots, garlic, red chilies, and peanuts.',
+                    'Saute the ground spices until fragrant, add salt and sugar.',
+                    'Arrange the vegetables on a serving plate, pour over the cooked peanut sauce.',
+                    'Serve serombotan with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '48',
+                'tutorial' => 'https://youtu.be/example48',
+                'latarBelakang' => 'Jukut Urab is a mixture of vegetables seasoned with grated coconut and typical Balinese spices.',
+                'bahanBahan' => json_encode([
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '200 grams of long beans, cut into pieces',
+                    '200 grams of grated coconut',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil spinach, water spinach, and long beans until cooked.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add grated coconut and mix well.',
+                    'Add salt and sugar, cook until cooked and the spices are absorbed.',
+                    'Mix the vegetables with the spiced coconut, stir well.',
+                    'Serve jukut urab with warm rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '49',
+                'tutorial' => 'https://youtu.be/example49',
+                'latarBelang' => 'Tipat Blayag is a traditional Balinese ketupat served with chicken, vegetables, and coconut sambal.',
+                'bahanBahan' => json_encode([
+                    '5 ketupat',
+                    '500 grams of chicken, cut as desired',
+                    '200 grams of spinach, cleaned',
+                    '200 grams of water spinach, cleaned',
+                    '200 grams of long beans, cut into pieces',
+                    '200 grams of grated coconut',
+                    '10 cloves of shallots',
+                    '5 cloves of garlic',
+                    '5 red chilies',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the chicken until cooked, remove and shred the meat.',
+                    'Boil spinach, water spinach, and long beans until cooked.',
+                    'Grind the spices: shallots, garlic, red chilies, lemongrass, and bay leaves.',
+                    'Saute the ground spices until fragrant, add grated coconut and mix well.',
+                    'Add salt and sugar, cook until cooked and the spices are absorbed.',
+                    'Serve ketupat with shredded chicken, vegetables, and coconut sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '50',
+                'tutorial' => 'https://youtu.be/example50',
+                'latarBelakang' => 'Sei Sapi is a smoked beef dish from Kupang cooked with typical spices.',
+                'bahanBahan' => json_encode([
+                    '500 grams of beef',
+                    '5 cloves of garlic',
+                    '5 cloves of shallots',
+                    '2 cm ginger',
+                    '2 cm turmeric',
+                    '3 tablespoons of sweet soy sauce',
+                    'salt and pepper to taste',
+                    'banana leaves for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the beef and slice thinly.',
+                    'Grind garlic, shallots, ginger, and turmeric.',
+                    'Marinate the beef with the ground spices, sweet soy sauce, salt, and pepper.',
+                    'Wrap the seasoned beef with banana leaves.',
+                    'Smoke the beef over low heat until cooked.',
+                    'Serve with rice and sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '51',
+                'tutorial' => 'https://youtu.be/example51',
+                'latarBelakang' => 'Jagung Bose is a traditional NTT dish made from corn cooked with red beans and coconut milk.',
+                'bahanBahan' => json_encode([
+                    '500 grams of jagung bose',
+                    '200 grams of red beans',
+                    '500 ml of coconut milk',
+                    '5 cloves of garlic',
+                    '5 cloves of shallots',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the jagung bose and red beans until tender.',
+                    'Grind the garlic and shallots, then saute until fragrant.',
+                    'Add the boiled corn and red beans to the sauteed spices.',
+                    'Add coconut milk, salt, and sugar, then cook until the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '52',
+                'tutorial' => 'https://youtu.be/example52',
+                'latarBelang' => 'Kolo is a traditional NTT dish where rice is cooked in bamboo.',
+                'bahanBahan' => json_encode([
+                    '500 grams of rice',
+                    '500 ml of coconut milk',
+                    '5 cloves of garlic',
+                    '5 cloves of shallots',
+                    '2 stalks of lemongrass, bruised',
+                    '3 bay leaves',
+                    'salt to taste',
+                    'bamboo for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Wash the rice until clean.',
+                    'Grind the garlic and shallots, then saute until fragrant.',
+                    'Add the sauteed spices to the rice, add coconut milk, lemongrass, bay leaves, and salt.',
+                    'Cook until half-cooked.',
+                    'Put the half-cooked rice into the bamboo.',
+                    'Roast the bamboo over a fire until the rice is perfectly cooked.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '53',
+                'tutorial' => 'https://youtu.be/example53',
+                'latarBelakang' => 'Catemak Corn is a traditional corn soup from NTT cooked with wax gourd, legumes, and papaya leaves.',
+                'bahanBahan' => json_encode([
+                    '200 grams of shelled corn',
+                    '200 grams of wax gourd, diced',
+                    '100 grams of long beans, chopped',
+                    '100 grams of young papaya leaves, thinly sliced',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the shelled corn until half-cooked.',
+                    'Crush garlic and shallots, then sauté until fragrant.',
+                    'Add the sautéed spices into the corn boil.',
+                    'Add wax gourd, long beans, and papaya leaves.',
+                    'Cook until all ingredients are cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '54',
+                'tutorial' => 'https://youtu.be/example54',
+                'latarBelakang' => 'Rumpu Rampe is a traditional vegetable dish from NTT made from young papaya leaves, papaya flowers, and banana hearts.',
+                'bahanBahan' => json_encode([
+                    '200 grams of young papaya leaves, thinly sliced',
+                    '100 grams of papaya flowers',
+                    '100 grams of banana heart, thinly sliced',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 red chili peppers, sliced diagonally',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil young papaya leaves, papaya flowers, and banana heart until wilted, drain.',
+                    'Crush garlic and shallots, then sauté until fragrant.',
+                    'Add the papaya leaves, papaya flowers, and banana heart to the sautéed spices.',
+                    'Add red chili, salt, and sugar, then stir well.',
+                    'Cook until all ingredients are cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '55',
+                'tutorial' => 'https://youtu.be/example55',
+                'latarBelakang' => 'Lontar Cake is a traditional milk pie from NTT made from milk, eggs, and sugar.',
+                'bahanBahan' => json_encode([
+                    '200 grams of flour',
+                    '100 grams of margarine',
+                    '50 grams of sugar',
+                    '3 eggs',
+                    '200 ml sweetened condensed milk',
+                    '1 teaspoon of vanilla'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Mix flour, margarine, and sugar until it becomes a pie crust dough.',
+                    'Shape the pie crust dough into pie molds, bake until half-cooked.',
+                    'Whisk eggs, sweetened condensed milk, and vanilla until even.',
+                    'Pour the filling into the half-cooked pie crust.',
+                    'Bake again until cooked.',
+                    'Serve warm or cold.'
+                ]),
+            ],
+            [
+                'makanan_id' => '56',
+                'tutorial' => 'https://youtu.be/example56',
+                'latarBelakang' => 'Jawada is a traditional cake from NTT made from rice flour and brown sugar that is fried.',
+                'bahanBahan' => json_encode([
+                    '200 grams of rice flour',
+                    '100 grams of grated brown sugar',
+                    '100 ml water',
+                    'oil for frying'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Dissolve brown sugar in water until it boils and thickens.',
+                    'Mix rice flour with brown sugar solution, stir well.',
+                    'Form the dough into small balls.',
+                    'Fry the dough balls until cooked and golden brown.',
+                    'Drain and serve.'
+                ]),
+            ],
+            [
+                'makanan_id' => '57',
+                'tutorial' => 'https://youtu.be/example57',
+                'latarBelakang' => 'Ayam Taliwang is a traditional grilled chicken from Lombok seasoned with spicy spices.',
+                'bahanBahan' => json_encode([
+                    '1 chicken, cut as desired',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '5 red chili peppers',
+                    '2 cm ginger',
+                    '2 cm turmeric',
+                    '3 tablespoons of sweet soy sauce',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, red chili, ginger, and turmeric.',
+                    'Coat chicken with ground spices, sweet soy sauce, salt, and sugar.',
+                    'Let the chicken sit for 30 minutes to allow the spices to absorb.',
+                    'Grill the chicken over charcoal until cooked and browned.',
+                    'Serve with rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '58',
+                'tutorial' => 'https://youtu.be/example58',
+                'latarBelakang' => 'Plecing Kangkung is a water spinach dish served with spicy tomato sambal.',
+                'bahanBahan' => json_encode([
+                    '500 grams of water spinach, pick the leaves',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '3 tomatoes, chopped',
+                    '5 shallots',
+                    '3 cloves of garlic',
+                    '2 tablespoons of grilled shrimp paste',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil water spinach until wilted, drain.',
+                    'Grind red chili, birds eye chili, tomato, shallots, garlic, and shrimp paste.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add salt and sugar, stir well.',
+                    'Pour the spicy tomato sambal over the boiled water spinach.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '59',
+                'tutorial' => 'https://youtu.be/example59',
+                'latarBelakang' => 'Sate Rembiga is a traditional beef satay from Rembiga seasoned with sweet and spicy sauce.',
+                'bahanBahan' => json_encode([
+                    '500 grams of beef, cut into cubes',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '5 red chili peppers',
+                    '2 tablespoons of grated palm sugar',
+                    '3 tablespoons of sweet soy sauce',
+                    '2 tablespoons of tamarind water',
+                    'sufficient amounts of salt and pepper'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, and red chili.',
+                    'Mix ground spices with palm sugar, sweet soy sauce, tamarind water, salt, and pepper.',
+                    'Marinate beef with the spices for 1 hour.',
+                    'Skewer the beef onto satay sticks.',
+                    'Grill the satay until cooked and browned.',
+                    'Serve with rice or lontong (rice cake).'
+                ]),
+            ],
+            [
+                'makanan_id' => '60',
+                'tutorial' => 'https://youtu.be/example60',
+                'latarBelakang' => 'Sate Tanjung is a traditional tuna satay from Lombok grilled with a special marinade.',
+                'bahanBahan' => json_encode([
+                    '500 grams of tuna, cut into cubes',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '3 red chili peppers',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '2 tablespoons of lime juice',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, red chili, turmeric, and ginger.',
+                    'Mix ground spices with lime juice, salt, and sugar.',
+                    'Marinate tuna with the spices for 30 minutes.',
+                    'Skewer the tuna onto satay sticks.',
+                    'Grill the satay until cooked and browned.',
+                    'Serve with rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '61',
+                'tutorial' => 'https://youtu.be/example61',
+                'latarBelakang' => 'Bebalung is a traditional beef rib soup cooked with special spices from Lombok.',
+                'bahanBahan' => json_encode([
+                    '500 grams of beef ribs',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm ginger, crushed',
+                    '2 cm galangal, crushed',
+                    '3 bay leaves',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and pepper'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil beef ribs until tender.',
+                    'Crush garlic and shallots, then sauté until fragrant.',
+                    'Add the sautéed spices to the boiled beef ribs.',
+                    'Add ginger, galangal, bay leaves, lemongrass, salt, and pepper.',
+                    'Cook until the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '62',
+                'tutorial' => 'https://youtu.be/example62',
+                'latarBelakang' => 'Ares is a traditional dish of young banana stem cooked with coconut milk and special spices from Lombok.',
+                'bahanBahan' => json_encode([
+                    '1 young banana stem, thinly sliced',
+                    '500 ml coconut milk',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm galangal, crushed',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil young banana stem until wilted, drain.',
+                    'Crush garlic, shallots, and turmeric.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add banana stem, galangal, and lemongrass.',
+                    'Add coconut milk, salt, and sugar.',
+                    'Cook until the spices are absorbed and the coconut milk thickens.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '63',
+                'tutorial' => 'https://youtu.be/example63',
+                'latarBelakang' => 'Nasi Balap Puyung is white rice served with spicy shredded chicken from Lombok.',
+                'bahanBahan' => json_encode([
+                    '500 grams of chicken, boiled and shredded',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '3 tablespoons of sweet soy sauce',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, red chili, birds eye chili, turmeric, and ginger.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add shredded chicken, stir until the spices are absorbed.',
+                    'Add sweet soy sauce, salt, and sugar, stir well.',
+                    'Cook until the chicken is cooked and the spices are absorbed.',
+                    'Serve with white rice.'
+                ]),
+            ],
+            [
+                'makanan_id' => '64',
+                'tutorial' => 'https://youtu.be/example64',
+                'latarBelakang' => 'Poteng Jaje Tujak is a dish of steamed sticky rice cooked with fermented cassava and grated coconut.',
+                'bahanBahan' => json_encode([
+                    '500 grams of white sticky rice, soaked overnight',
+                    '200 grams of fermented cassava',
+                    '100 grams of grated coconut',
+                    '3 tablespoons of sugar',
+                    '1 teaspoon of salt'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Steam the sticky rice until cooked.',
+                    'Mix fermented cassava with sugar and salt.',
+                    'Evenly mix the fermented cassava with the cooked sticky rice.',
+                    'Add grated coconut, stir well.',
+                    'Serve warm or cold.'
+                ]),
+            ],
+            [
+                'makanan_id' => '65',
+                'tutorial' => 'https://youtu.be/example65',
+                'latarBelakang' => 'Kelaq Batih is a dish of long beans cooked with coconut milk and special spices from Lombok.',
+                'bahanBahan' => json_encode([
+                    '200 grams of long beans, chopped',
+                    '500 ml coconut milk',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '2 cm galangal, crushed',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, turmeric, and ginger.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add long beans, galangal, and lemongrass.',
+                    'Add coconut milk, salt, and sugar.',
+                    'Cook until the long beans are cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '66',
+                'tutorial' => 'https://youtu.be/example66',
+                'latarBelakang' => 'Papeda is a sago porridge served with yellow fish soup, a traditional dish from Papua.',
+                'bahanBahan' => json_encode([
+                    '200 grams of sago',
+                    '1 liter of water',
+                    '500 grams of tuna',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '3 bay leaves',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Dissolve sago in water until thickened.',
+                    'Boil tuna with garlic, shallots, turmeric, ginger, bay leaves, and lemongrass.',
+                    'Add salt and sugar, cook until the fish is cooked and the spices are absorbed.',
+                    'Serve papeda with yellow fish soup.'
+                ]),
+            ],
+            [
+                'makanan_id' => '67',
+                'tutorial' => 'https://youtu.be/example67',
+                'latarBelakang' => 'Yellow Fish Soup is a fish dish cooked with turmeric and traditional spices from Papua.',
+                'bahanBahan' => json_encode([
+                    '500 grams of tuna, cut into pieces',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '3 bay leaves',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, turmeric, and ginger.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add tuna, bay leaves, and lemongrass.',
+                    'Add salt and sugar.',
+                    'Cook until the fish is cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '68',
+                'tutorial' => 'https://youtu.be/example68',
+                'latarBelakang' => 'Sate Ulat Sagu is a satay made from sago worms cooked with traditional spices from Papua.',
+                'bahanBahan' => json_encode([
+                    '200 grams of sago worms',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 red chili peppers',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '2 tablespoons of lime juice',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, red chili, turmeric, and ginger.',
+                    'Mix ground spices with lime juice, salt, and sugar.',
+                    'Marinate sago worms with the spices for 30 minutes.',
+                    'Skewer the sago worms onto satay sticks.',
+                    'Grill the satay until cooked and browned.',
+                    'Serve with sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '69',
+                'tutorial' => 'https://youtu.be/example69',
+                'latarBelakang' => 'Cheating Prawn is a freshwater prawn dish from Wamena cooked with spice seasoning.',
+                'bahanBahan' => json_encode([
+                    '500 grams of freshwater prawns',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '3 bay leaves',
+                    '2 stalks of lemongrass, crushed',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the freshwater prawns.',
+                    'Crush garlic, shallots, turmeric, and ginger.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add prawns, bay leaves, and lemongrass.',
+                    'Add salt and sugar.',
+                    'Cook until the prawns are cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '70',
+                'tutorial' => 'https://youtu.be/example70',
+                'latarBelakang' => 'Aunu Senebre is a dish of anchovies cooked with taro leaves and grated coconut.',
+                'bahanBahan' => json_encode([
+                    '200 grams of anchovies',
+                    '100 grams of taro leaves, thinly sliced',
+                    '100 grams of grated coconut',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Clean the anchovies.',
+                    'Crush garlic, shallots, turmeric, and ginger.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add taro leaves, grated coconut, and anchovies.',
+                    'Add salt and sugar.',
+                    'Cook until all ingredients are cooked and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '71',
+                'tutorial' => 'https://youtu.be/example71',
+                'latarBelakang' => 'Martabak Sagu is a martabak made from sago as the base and filled with grated coconut and brown sugar.',
+                'bahanBahan' => json_encode([
+                    '200 grams of sago',
+                    '100 grams of grated coconut',
+                    '50 grams of grated brown sugar',
+                    '100 ml water',
+                    'oil for frying'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Mix sago with water until it forms a thick batter.',
+                    'Add grated coconut and grated brown sugar, stir well.',
+                    'Heat oil, pour martabak batter into the pan.',
+                    'Fry until cooked and golden brown.',
+                    'Drain and serve.'
+                ]),
+            ],
+            [
+                'makanan_id' => '72',
+                'tutorial' => 'https://youtu.be/example72',
+                'latarBelakang' => 'Sagu Lempeng is a sago bread baked traditionally, usually served with fish or grated coconut.',
+                'bahanBahan' => json_encode([
+                    '200 grams of sago',
+                    '100 grams of grated coconut',
+                    '100 ml water',
+                    'sufficient amount of salt'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Mix sago, grated coconut, water, and salt until the batter can be molded.',
+                    'Form the batter into flat discs.',
+                    'Grill the sago batter on charcoal until cooked.',
+                    'Serve with fish or grated coconut.'
+                ]),
+            ],
+            [
+                'makanan_id' => '73',
+                'tutorial' => 'https://youtu.be/example73',
+                'latarBelakang' => 'Grilled Fish Manokwari is a traditional grilled fish from Manokwari served with special sambal.',
+                'bahanBahan' => json_encode([
+                    '500 grams of fish, cleaned',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '2 red chili peppers',
+                    '2 cm turmeric',
+                    '2 cm ginger',
+                    '2 tablespoons of lime juice',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, red chili, turmeric, and ginger.',
+                    'Mix ground spices with lime juice, salt, and sugar.',
+                    'Coat fish with ground spices.',
+                    'Grill the fish over charcoal until cooked and browned.',
+                    'Serve with special Manokwari sambal.'
+                ]),
+            ],
+            [
+                'makanan_id' => '74',
+                'tutorial' => 'https://youtu.be/example74',
+                'latarBelakang' => 'Plecing Kangkung Lombok is a water spinach dish served with spicy tomato sambal.',
+                'bahanBahan' => json_encode([
+                    '500 grams of water spinach, pick the leaves',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '3 tomatoes chopped',
+                    '5 shallots',
+                    '3 cloves of garlic',
+                    '2 tablespoons of grilled shrimp paste',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil water spinach until wilted, drain.',
+                    'Grind red chili, birds eye chili, tomato, shallots, garlic, and shrimp paste.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add salt and sugar, stir well.',
+                    'Pour the spicy tomato sambal over the boiled water spinach.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '75',
+                'tutorial' => 'https://youtu.be/example75',
+                'latarBelakang' => 'Sate Bulayak Sumbawa is a traditional beef satay from Sumbawa served with a special peanut sauce.',
+                'bahanBahan' => json_encode([
+                    '500 grams of beef, cut into cubes',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '5 red chili peppers',
+                    '3 tablespoons of roasted and ground peanuts',
+                    '2 tablespoons of grated palm sugar',
+                    '3 tablespoons of sweet soy sauce',
+                    '2 tablespoons of tamarind water',
+                    'sufficient amounts of salt and pepper'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, and red chili.',
+                    'Mix ground spices with peanuts, palm sugar, sweet soy sauce, tamarind water, salt, and pepper.',
+                    'Marinate beef with the spices for 1 hour.',
+                    'Skewer the beef onto satay sticks.',
+                    'Grill the satay until cooked and browned.',
+                    'Serve with rice or lontong (rice cake).'
+                ]),
+            ],
+            [
+                'makanan_id' => '76',
+                'tutorial' => 'https://youtu.be/example76',
+                'latarBelakang' => 'Kolo is a noodle dish with peanut sauce from Flores served with sliced meat or fish.',
+                'bahanBahan' => json_encode([
+                    '500 grams of yellow noodles, boiled until cooked',
+                    '200 grams of beef or fish, thinly sliced',
+                    '5 cloves of garlic',
+                    '5 shallots',
+                    '3 red chili peppers',
+                    '2 tablespoons of roasted and ground peanuts',
+                    '2 tablespoons of lime juice',
+                    'sufficient amounts of salt and sugar'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Crush garlic, shallots, and red chili.',
+                    'Mix ground spices with peanuts, lime juice, salt, and sugar.',
+                    'Sauté the ground spices until fragrant.',
+                    'Add beef or fish, stir until cooked.',
+                    'Serve the yellow noodles with peanut sauce and sliced meat or fish.'
+                ]),
+            ],
+            [
+                'makanan_id' => '77',
+                'tutorial' => 'https://youtu.be/example77',
+                'latarBelakang' => 'Ikan Woku Maumere is a fish dish with spicy and savory Woku seasoning.',
+                'bahanBahan' => json_encode([
+                    '500 grams of fish, cleaned and chopped',
+                    '5 cloves of garlic',
+                    '5 cloves of shallot',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '2 cm of turmeric',
+                    '2 cm of ginger',
+                    '3 kaffir lime leaves',
+                    '2 stalks of lemongrass, bruised',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind garlic, shallot, red chili, birds eye chili, turmeric, and ginger.',
+                    'Saute the ground spices until fragrant.',
+                    'Add fish, kaffir lime leaves, and lemongrass.',
+                    'Add salt and sugar.',
+                    'Cook until the fish is done and the spices are absorbed.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '78',
+                'tutorial' => 'https://youtu.be/example78',
+                'latarBelakang' => 'Ayam Betutu is chicken cooked with a mix of spices and wrapped in banana leaves to be grilled.',
+                'bahanBahan' => json_encode([
+                    '1 chicken, cleaned and cut as desired',
+                    '5 cloves of garlic',
+                    '5 cloves of shallot',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '2 cm of turmeric',
+                    '2 cm of ginger',
+                    '3 stalks of lemongrass, bruised',
+                    'salt and sugar to taste',
+                    'banana leaves for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind garlic, shallot, red chili, birds eye chili, turmeric, and ginger.',
+                    'Saute the ground spices until fragrant.',
+                    'Add chicken, lemongrass, salt, and sugar.',
+                    'Cook until the chicken changes color and the spices are absorbed.',
+                    'Wrap the chicken in banana leaves.',
+                    'Grill the chicken in an oven or over a charcoal fire until done.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '79',
+                'tutorial' => 'https://youtu.be/example79',
+                'latarBelakang' => 'Pelecing Sasak is a dish of water spinach served with spicy tomato sambal and sliced tomatoes.',
+                'bahanBahan' => json_encode([
+                    '500 grams of water spinach, pick the leaves',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '3 tomatoes, chopped',
+                    '5 cloves of shallot',
+                    '3 cloves of garlic',
+                    '2 tablespoons of roasted shrimp paste',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the water spinach until wilted, drain.',
+                    'Grind red chili, birds eye chili, tomatoes, shallot, garlic, and shrimp paste.',
+                    'Saute the ground spices until fragrant.',
+                    'Add salt and sugar, mix well.',
+                    'Pour the spicy tomato sambal over the boiled water spinach.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '80',
+                'tutorial' => 'https://youtu.be/example80',
+                'latarBelakang' => 'Bebek Betutu is duck cooked with a mix of spices and wrapped in banana leaves to be grilled.',
+                'bahanBahan' => json_encode([
+                    '1 duck, cleaned and cut as desired',
+                    '5 cloves of garlic',
+                    '5 cloves of shallot',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '2 cm of turmeric',
+                    '2 cm of ginger',
+                    '3 stalks of lemongrass, bruised',
+                    'salt and sugar to taste',
+                    'banana leaves for wrapping'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind garlic, shallot, red chili, birds eye chili, turmeric, and ginger.',
+                    'Saute the ground spices until fragrant.',
+                    'Add duck, lemongrass, salt, and sugar.',
+                    'Cook until the duck changes color and the spices are absorbed.',
+                    'Wrap the duck in banana leaves.',
+                    'Grill the duck in an oven or over a charcoal fire until done.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '81',
+                'tutorial' => 'https://youtu.be/example81',
+                'latarBelakang' => 'Ikan Belanga Bajawa is a fish dish cooked with a mix of spices and grilled in a Belanga (clay pot).',
+                'bahanBahan' => json_encode([
+                    '500 grams of fish, cleaned and chopped',
+                    '5 cloves of garlic',
+                    '5 cloves of shallot',
+                    '5 red chili peppers',
+                    '3 birds eye chili peppers',
+                    '2 cm of turmeric',
+                    '2 cm of ginger',
+                    '3 kaffir lime leaves',
+                    '2 stalks of lemongrass, bruised',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Grind garlic, shallot, red chili, birds eye chili, turmeric, and ginger.',
+                    'Saute the ground spices until fragrant.',
+                    'Add fish, kaffir lime leaves, and lemongrass.',
+                    'Add salt and sugar.',
+                    'Cook until the fish is done and the spices are absorbed.',
+                    'Transfer the fish and spices into a Belanga (clay pot).',
+                    'Grill the Belanga over a charcoal fire until the fish is perfectly cooked.',
+                    'Serve warm.'
+                ]),
+            ],
+            [
+                'makanan_id' => '82',
+                'tutorial' => 'https://youtu.be/example82',
+                'latarBelakang' => 'Sup Kacang Merah Maumere is a red bean soup cooked with a mix of spices and served with rice.',
+                'bahanBahan' => json_encode([
+                    '200 grams of red beans, soaked overnight',
+                    '5 cloves of garlic',
+                    '5 cloves of shallot',
+                    '2 tomatoes, chopped',
+                    '2 cm of ginger, bruised',
+                    '2 cm of galangal, bruised',
+                    '3 bay leaves',
+                    '2 stalks of lemongrass, bruised',
+                    'salt and sugar to taste'
+                ]),
+                'langkahLangkah' => json_encode([
+                    'Boil the red beans until soft.',
+                    'Grind garlic and shallot, then saute until fragrant.',
+                    'Add tomatoes, ginger, galangal, bay leaves, and lemongrass to the sauteed spices.',
+                    'Add the boiled red beans, salt, and sugar.',
+                    'Cook until the spices are absorbed.',
+                    'Serve warm with rice.'
+                ]),
             ],
         ]);
     }
